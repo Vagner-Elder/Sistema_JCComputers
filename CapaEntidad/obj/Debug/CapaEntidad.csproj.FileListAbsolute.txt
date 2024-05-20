@@ -22,3 +22,9 @@ C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\obj\D
 C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.dll
 C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.pdb

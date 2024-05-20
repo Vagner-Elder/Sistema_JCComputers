@@ -126,3 +126,42 @@ C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaNegocio\obj\D
 C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\CapaNegocio.dll.config
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\MySql.Data.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\Google.Protobuf.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\ZstdSharp.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Memory.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Buffers.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.IO.Pipelines.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\CapaDatos.dll.config
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\MySql.Data.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\Google.Protobuf.pdb
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\Google.Protobuf.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Memory.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Buffers.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.IO.Pipelines.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaNegocio\obj\Debug\CapaNegocio.pdb
