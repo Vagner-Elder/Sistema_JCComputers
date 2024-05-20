@@ -1,0 +1,237 @@
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaDatos\bin\Debug\CapaEntidad.dll
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaDatos\bin\Debug\CapaEntidad.pdb
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\CapaEntidad.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Google.Protobuf.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\MySql.Data.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\MySql.Data.EntityFrameworkCore.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Buffers.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.IO.Pipelines.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Memory.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\ZstdSharp.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\CapaEntidad.pdb
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Google.Protobuf.pdb
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Google.Protobuf.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\MySql.Data.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\MySql.Data.EntityFrameworkCore.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Buffers.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Collections.Immutable.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.IO.Pipelines.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Memory.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\CapaDatos.dll.config
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\CapaDatos.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\CapaDatos.pdb
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\BouncyCastle.Cryptography.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\CapaEntidad.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Google.Protobuf.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\K4os.Compression.LZ4.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\K4os.Compression.LZ4.Streams.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\K4os.Hash.xxHash.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Bcl.HashCode.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Options.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Primitives.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\MySql.Data.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\MySql.Data.EntityFrameworkCore.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Buffers.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Collections.Immutable.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.ComponentModel.Annotations.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Configuration.ConfigurationManager.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.IO.Pipelines.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Memory.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Numerics.Vectors.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\ZstdSharp.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\CapaEntidad.pdb
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\BouncyCastle.Cryptography.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Google.Protobuf.pdb
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Google.Protobuf.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\K4os.Compression.LZ4.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\K4os.Compression.LZ4.Streams.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\K4os.Hash.xxHash.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Bcl.HashCode.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Options.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Microsoft.Extensions.Primitives.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\MySql.Data.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\MySql.Data.EntityFrameworkCore.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Buffers.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Collections.Immutable.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.IO.Pipelines.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Memory.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Numerics.Vectors.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\CapaEntidad.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Google.Protobuf.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\MySql.Data.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\MySql.Data.EntityFrameworkCore.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Buffers.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.IO.Pipelines.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Memory.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\ZstdSharp.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\CapaEntidad.pdb
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Google.Protobuf.pdb
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Google.Protobuf.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\MySql.Data.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\MySql.Data.EntityFrameworkCore.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Buffers.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Collections.Immutable.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.IO.Pipelines.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Memory.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaDatos\obj\Debug\CapaDatos.pdb

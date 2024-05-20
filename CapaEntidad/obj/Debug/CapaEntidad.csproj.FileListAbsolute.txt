@@ -1,0 +1,24 @@
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\Lenovo\Desktop\Nueva carpeta\034_CursoSistemaVentaEscritorio-master\034_CursoSistemaVentaEscritorio-master\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\Lenovo\Desktop\SISTEMA JC\Sistema_JC\CapaEntidad\obj\Debug\CapaEntidad.pdb
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaEntidad\bin\Debug\CapaEntidad.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaEntidad\bin\Debug\CapaEntidad.pdb
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaEntidad\obj\Debug\CapaEntidad.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\Lenovo\Desktop\Sis JC Clon\Sistema_Ventas_JCComputers\CapaEntidad\obj\Debug\CapaEntidad.pdb
