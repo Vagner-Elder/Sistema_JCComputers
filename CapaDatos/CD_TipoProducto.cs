@@ -149,6 +149,31 @@ namespace CapaDatos
             return respuesta;
         }
 
+        public int ObtenerIdPorNombre(string nombre)
+        {
+            int id = 0;
+            using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = "SELECT Id FROM Tipo_Producto WHERE Nombre = @Nombre";
+                    MySqlCommand cmd = new MySqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@Nombre", nombre);
 
+                    oconexion.Open();
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        id = Convert.ToInt32(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+            return id;
+        }
     }
 }

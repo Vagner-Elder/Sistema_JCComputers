@@ -484,6 +484,28 @@ CREATE TABLE PRODUCTO (
     FOREIGN KEY (Id_Sucursal) REFERENCES SUCURSAL(IdSucursal)
 );
 
+-- PROCEDIMIENTO PARA INSERTAR PRODUCTOS
+DELIMITER // 
+CREATE PROCEDURE InsertarProducto(
+IN p_Codigo Varchar(50),
+IN p_Id_Tipo_Producto INT,
+IN p_Id_Marca INT,
+IN p_Id_Modelo INT,
+IN p_Id_Capacidad_Tamanio INT,
+IN p_Id_Tipo_Componente INT,
+IN p_Stock INT,
+IN p_PrecioCompra DECIMAL(10,2),
+IN p_PrecioVenta DECIMAL(10,2),
+IN p_Id_Sucursal INT,
+IN p_Estado BIT,
+IN p_Descripcion TEXT
+)
+BEGIN
+INSERT INTO PRODUCTO(Codigo, Id_Tipo_Producto, Id_Marca, Id_Modelo, Id_Capacidad_Tamanio, Id_Tipo_Componente, Stock, PrecioCompra, PrecioVenta, Id_Sucursal, Estado, Descripcion) 
+VALUES (p_Codigo, p_Id_Tipo_Producto, p_Id_Marca, p_Id_Modelo, p_Id_Capacidad_Tamanio, p_Id_Tipo_Componente, p_Stock, p_PrecioCompra, p_PrecioVenta, p_Id_Sucursal, p_Estado, p_Descripcion);
+END //
+
+
 select * from Capacidad_Tamanio
 -- Insertar un nuevo registro en la tabla PRODUCTO
 INSERT INTO PRODUCTO (Codigo, Id_Tipo_Producto, Id_Marca, Id_Modelo, Id_Capacidad_Tamanio, Id_Tipo_Componente, Stock, PrecioCompra, PrecioVenta, Id_Sucursal, Estado, Descripcion)
@@ -495,9 +517,13 @@ VALUES ('COD002', 2, 1, 4, 3, 5, 50, 30.00, 60.00, 2, 1, 'Descripción del produ
 
 -- Insertar un tercer registro en la tabla PRODUCTO
 INSERT INTO PRODUCTO (Codigo, Id_Tipo_Producto, Id_Marca, Id_Modelo, Id_Capacidad_Tamanio, Id_Tipo_Componente, Stock, PrecioCompra, PrecioVenta, Id_Sucursal, Estado, Descripcion)
-VALUES ('COD003', 3, 3, 2, 1, 4, 200, 20.00, 40.00, 1, 1, 'Descripción del producto 3');
+VALUES ('COD005', 7, 2, 2, 2, 1, 200, 20.00, 40.00, 3, 1, 'Descripción del producto 5');
 
-
+select * from Tipo_Producto
+select * from Marca
+select * from Modelo
+select * from Capacidad_Tamanio
+select * from Tipo_Componente
 
 /*TABLAS UNIFICADAS*/
 

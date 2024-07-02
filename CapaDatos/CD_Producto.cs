@@ -13,79 +13,6 @@ namespace CapaDatos
     public class CD_Producto
     {
 
-        //public List<Producto> Listar()
-        //{
-        //    List<Producto> lista = new List<Producto>();
-
-        //    using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
-        //    {
-        //        try
-        //        {
-        //            string query = @"
-        //        SELECT 
-        //            P.IdProducto, 
-        //            P.Codigo, 
-        //            TP.Nombre AS TipoProducto, 
-        //            M.Nombre AS Marca, 
-        //            Mo.Nombre AS Modelo, 
-        //            CT.Nombre AS CapacidadTamano, 
-        //            TC.Nombre AS TipoComponente, 
-        //            P.Stock, 
-        //            P.PrecioCompra, 
-        //            P.PrecioVenta, 
-        //            S.Nombre AS Sucursal, 
-        //            P.Estado, 
-        //            P.Descripcion, 
-        //            P.FechaRegistro
-        //        FROM 
-        //            PRODUCTO AS P
-        //            LEFT JOIN Tipo_Producto AS TP ON P.Id_Tipo_Producto = TP.Id
-        //            LEFT JOIN Marca AS M ON P.Id_Marca = M.Id
-        //            LEFT JOIN Modelo AS Mo ON P.Id_Modelo = Mo.Id
-        //            LEFT JOIN Capacidad_Tamanio AS CT ON P.Id_Capacidad_Tamanio = CT.Id
-        //            LEFT JOIN Tipo_Componente AS TC ON P.Id_Tipo_Componente = TC.Id
-        //            LEFT JOIN SUCURSAL AS S ON P.Id_Sucursal = S.IdSucursal";
-
-        //            MySqlCommand cmd = new MySqlCommand(query, oconexion);
-        //            cmd.CommandType = CommandType.Text;
-
-        //            oconexion.Open();
-
-        //            using (MySqlDataReader dr = cmd.ExecuteReader())
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    Producto producto = new Producto
-        //                    {
-        //                        IdProducto = Convert.ToInt32(dr["IdProducto"]),
-        //                        Codigo = dr["Codigo"].ToString(),
-        //                        TipoProducto = dr["TipoProducto"].ToString(),
-        //                        Marca = dr["Marca"].ToString(),
-        //                        Modelo = dr["Modelo"].ToString(),
-        //                        CapacidadTamano = dr["CapacidadTamano"].ToString(),
-        //                        TipoComponente = dr["TipoComponente"].ToString(),
-        //                        Stock = Convert.ToInt32(dr["Stock"]),
-        //                        PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"]),
-        //                        PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"]),
-        //                        Sucursal = dr["Sucursal"].ToString(),
-        //                        Estado = Convert.ToInt32(dr["Estado"]) == 1 ? true : false,
-        //                        Descripcion = dr["Descripcion"].ToString(),
-        //                        FechaRegistro = Convert.ToDateTime(dr["FechaRegistro"])
-        //                    };
-
-        //                    lista.Add(producto);
-        //                }
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //           lista = new List<Producto>();
-        //        }
-        //    }
-
-        //    return lista;
-        //}
-
         public List<Producto> Listar()
         {
             List<Producto> lista = new List<Producto>();
@@ -159,7 +86,49 @@ namespace CapaDatos
             return lista;
         }
 
-        //FALTA ADAPTAR ESTO CON LA TABLA PRODUCTO DE LA BD
+        // Registrar Productos
+        public int RegistrarProducto(string codigo, int idTipoProducto, int idMarca, int idModelo, int idCapacidadTamano, int idTipoComponente, int stock, decimal precioCompra, decimal precioVenta, int idSucursal, int estado, string descripcion, out string Mensaje)
+        {
+            int idProductoGenerado = 0;
+            Mensaje = string.Empty;
+
+            using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("InsertarProducto", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("p_Codigo", codigo);
+                    cmd.Parameters.AddWithValue("p_Id_Tipo_Producto", idTipoProducto);
+                    cmd.Parameters.AddWithValue("p_Id_Marca", idMarca);
+                    cmd.Parameters.AddWithValue("p_Id_Modelo", idModelo);
+                    cmd.Parameters.AddWithValue("p_Id_Capacidad_Tamanio", idCapacidadTamano);
+                    cmd.Parameters.AddWithValue("p_Id_Tipo_Componente", idTipoComponente);
+                    cmd.Parameters.AddWithValue("p_Stock", stock);
+                    cmd.Parameters.AddWithValue("p_PrecioCompra", precioCompra);
+                    cmd.Parameters.AddWithValue("p_PrecioVenta", precioVenta);
+                    cmd.Parameters.AddWithValue("p_Id_Sucursal", idSucursal);
+                    cmd.Parameters.AddWithValue("p_Estado", estado);
+                    cmd.Parameters.AddWithValue("p_Descripcion", descripcion);
+
+                    cmd.Parameters.Add(new MySqlParameter("p_Resultado", MySqlDbType.Int32));
+                    cmd.Parameters["p_Resultado"].Direction = ParameterDirection.Output;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    idProductoGenerado = Convert.ToInt32(cmd.Parameters["p_Resultado"].Value);
+                }
+                catch (Exception ex)
+                {
+                    idProductoGenerado = 0;
+                    Mensaje = ex.Message;
+                }
+            }
+            return idProductoGenerado;
+        }
+
 
         //public int Registrar(Producto obj, out string Mensaje)
         //{

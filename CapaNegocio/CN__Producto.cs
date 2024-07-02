@@ -20,43 +20,38 @@ namespace CapaNegocio
             return objcd_Producto.Listar();
         }
 
-        //public int Registrar(Producto obj, out string Mensaje)
-        //{
-        //    Mensaje = string.Empty;
+        public int RegistrarProducto(Producto obj, out string Mensaje)
+        {
+            Mensaje = string.Empty;
 
-        //    if (obj.Codigo == "")
-        //    {
-        //        Mensaje += "Es necesario el codigo del Producto\n";
-        //    }
+            // Validaciones u otra lógica antes de registrar el producto
+            // ...
+            //if (obj.Codigo == "")
+            //    //{
+            //    //    Mensaje += "Es necesario el codigo del Producto\n";
+            //    //}
 
-        //    if (obj.Nombre == "")
-        //    {
-        //        Mensaje += "Es necesario el nombre del Producto\n";
-        //    }
+            int resultado = objcd_Producto.RegistrarProducto(obj.Codigo, obj.TipoProducto.Id, obj.Marca.Id, obj.Modelo.Id, obj.CapacidadTamano.Id, obj.TipoComponente.Id, obj.Stock, obj.PrecioCompra, obj.PrecioVenta, obj.Sucursal.IdSucursal, obj.Estado ? 1 : 0, obj.Descripcion, out Mensaje);
 
-        //    if (obj.Descripcion == "")
-        //    {
-        //        Mensaje += "Es necesario la Descripcion del Producto\n";
-        //    }
+            if (resultado > 0)
+            {
+                Mensaje = "Producto registrado correctamente.";
+            }
+            else
+            {
+                Mensaje = "Error al registrar el producto.";
+            }
 
-        //    if (Mensaje != string.Empty)
-        //    {
-        //        return 0;
-        //    }
-        //    else
-        //    {
-        //        return objcd_Producto.Registrar(obj, out Mensaje);
-        //    }
+            return resultado;
+        }
 
-
-        //}
 
 
         //public bool Editar(Producto obj, out string Mensaje)
         //{
 
         //    Mensaje = string.Empty;
-            
+
 
         //    if (obj.Codigo == "")
         //    {
