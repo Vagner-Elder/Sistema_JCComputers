@@ -498,12 +498,62 @@ IN p_PrecioCompra DECIMAL(10,2),
 IN p_PrecioVenta DECIMAL(10,2),
 IN p_Id_Sucursal INT,
 IN p_Estado BIT,
-IN p_Descripcion TEXT
+IN p_Descripcion TEXT,
+OUT p_Resultado INT
 )
 BEGIN
-INSERT INTO PRODUCTO(Codigo, Id_Tipo_Producto, Id_Marca, Id_Modelo, Id_Capacidad_Tamanio, Id_Tipo_Componente, Stock, PrecioCompra, PrecioVenta, Id_Sucursal, Estado, Descripcion) 
-VALUES (p_Codigo, p_Id_Tipo_Producto, p_Id_Marca, p_Id_Modelo, p_Id_Capacidad_Tamanio, p_Id_Tipo_Componente, p_Stock, p_PrecioCompra, p_PrecioVenta, p_Id_Sucursal, p_Estado, p_Descripcion);
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+		SET p_Resultado = 0;
+	END;
+    
+	INSERT INTO PRODUCTO(Codigo, Id_Tipo_Producto, Id_Marca, Id_Modelo, Id_Capacidad_Tamanio, Id_Tipo_Componente, Stock, PrecioCompra, PrecioVenta, Id_Sucursal, Estado, Descripcion) 
+	VALUES (p_Codigo, p_Id_Tipo_Producto, p_Id_Marca, p_Id_Modelo, p_Id_Capacidad_Tamanio, p_Id_Tipo_Componente, p_Stock, p_PrecioCompra, p_PrecioVenta, p_Id_Sucursal, p_Estado, p_Descripcion);
+	SET p_Resultado = LAST_INSERT_ID();
 END //
+
+-- PROCEDIMIENTO PARA MODIFICAR PRODUCTOS
+ DELIMITER //
+CREATE PROCEDURE EditarProducto(
+    IN p_IdProducto INT,
+    IN p_Codigo VARCHAR(50),
+    IN p_Id_Tipo_Producto INT,
+    IN p_Id_Marca INT,
+    IN p_Id_Modelo INT,
+    IN p_Id_Capacidad_Tamanio INT,
+    IN p_Id_Tipo_Componente INT,
+    IN p_Stock INT,
+    IN p_PrecioCompra DECIMAL(10,2),
+    IN p_PrecioVenta DECIMAL(10,2),
+    IN p_Id_Sucursal INT,
+    IN p_Estado INT,
+    IN p_Descripcion TEXT,
+    OUT p_Resultado INT
+)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+    BEGIN
+        SET p_Resultado = 0;
+    END;
+    UPDATE PRODUCTO 
+    SET 
+        Codigo = p_Codigo,
+        Id_Tipo_Producto = p_Id_Tipo_Producto,
+        Id_Marca = p_Id_Marca,
+        Id_Modelo = p_Id_Modelo,
+        Id_Capacidad_Tamanio = p_Id_Capacidad_Tamanio,
+        Id_Tipo_Componente = p_Id_Tipo_Componente,
+        Stock = p_Stock,
+        PrecioCompra = p_PrecioCompra,
+        PrecioVenta = p_PrecioVenta,
+        Id_Sucursal = p_Id_Sucursal,
+        Estado = p_Estado,
+        Descripcion = p_Descripcion
+    WHERE IdProducto = p_IdProducto;
+    SET p_Resultado = ROW_COUNT();
+END //
+
+drop procedure EditarProducto
 
 
 select * from Capacidad_Tamanio

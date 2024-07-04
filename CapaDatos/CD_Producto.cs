@@ -130,95 +130,49 @@ namespace CapaDatos
         }
 
 
-        //public int Registrar(Producto obj, out string Mensaje)
-        //{
-        //    int idProductogenerado = 0;
-        //    Mensaje = string.Empty;
+        public int EditarProducto(int idProducto, string codigo, int idTipoProducto, int idMarca, int idModelo, int idCapacidadTamano, int idTipoComponente, int stock, decimal precioCompra, decimal precioVenta, int idSucursal, int estado, string descripcion, out string Mensaje)
+        {
+            int resultado = 0;
+            Mensaje = string.Empty;
 
+            using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand("EditarProducto", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-        //    try
-        //    {
+                    cmd.Parameters.AddWithValue("p_IdProducto", idProducto);
+                    cmd.Parameters.AddWithValue("p_Codigo", codigo);
+                    cmd.Parameters.AddWithValue("p_Id_Tipo_Producto", idTipoProducto);
+                    cmd.Parameters.AddWithValue("p_Id_Marca", idMarca);
+                    cmd.Parameters.AddWithValue("p_Id_Modelo", idModelo);
+                    cmd.Parameters.AddWithValue("p_Id_Capacidad_Tamanio", idCapacidadTamano);
+                    cmd.Parameters.AddWithValue("p_Id_Tipo_Componente", idTipoComponente);
+                    cmd.Parameters.AddWithValue("p_Stock", stock);
+                    cmd.Parameters.AddWithValue("p_PrecioCompra", precioCompra);
+                    cmd.Parameters.AddWithValue("p_PrecioVenta", precioVenta);
+                    cmd.Parameters.AddWithValue("p_Id_Sucursal", idSucursal);
+                    cmd.Parameters.AddWithValue("p_Estado", estado);
+                    cmd.Parameters.AddWithValue("p_Descripcion", descripcion);
 
-        //        using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
-        //        {
+                    cmd.Parameters.Add(new MySqlParameter("p_Resultado", MySqlDbType.Int32));
+                    cmd.Parameters["p_Resultado"].Direction = ParameterDirection.Output;
 
-        //            MySqlCommand cmd = new MySqlCommand("sp_RegistrarProducto", oconexion);
-        //            cmd.Parameters.AddWithValue("p_Codigo", obj.Codigo);
-        //            cmd.Parameters.AddWithValue("p_Nombre", obj.Nombre);
-        //            cmd.Parameters.AddWithValue("p_Descripcion", obj.Descripcion);
-        //            cmd.Parameters.AddWithValue("p_IdCategoria", obj.oCategoria.IdCategoria);
-        //            cmd.Parameters.AddWithValue("p_Estado", obj.Estado);
-        //            cmd.Parameters.Add("p_Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-        //            cmd.Parameters.Add("p_Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-        //            cmd.CommandType = CommandType.StoredProcedure;
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
 
-        //            oconexion.Open();
+                    resultado = Convert.ToInt32(cmd.Parameters["p_Resultado"].Value);
+                }
+                catch (Exception ex)
+                {
 
-        //            cmd.ExecuteNonQuery();
-
-        //            idProductogenerado = Convert.ToInt32(cmd.Parameters["p_Resultado"].Value);
-        //            Mensaje = cmd.Parameters["p_Mensaje"].Value.ToString();
-
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        idProductogenerado = 0;
-        //        Mensaje = ex.Message;
-        //    }
-
-
-
-        //    return idProductogenerado;
-        //}
-
-
-
-        //public bool Editar(Producto obj, out string Mensaje)
-        //{
-        //    bool respuesta = false;
-        //    Mensaje = string.Empty;
-
-
-        //    try
-        //    {
-
-        //        using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
-        //        {
-
-        //            MySqlCommand cmd = new MySqlCommand("sp_ModificarProducto", oconexion);
-        //            cmd.Parameters.AddWithValue("p_IdProducto", obj.IdProducto);
-        //            cmd.Parameters.AddWithValue("p_Codigo", obj.Codigo);
-        //            cmd.Parameters.AddWithValue("p_Nombre", obj.Nombre);
-        //            cmd.Parameters.AddWithValue("p_Descripcion", obj.Descripcion);
-        //            cmd.Parameters.AddWithValue("p_IdCategoria", obj.oCategoria.IdCategoria);
-        //            cmd.Parameters.AddWithValue("p_Estado", obj.Estado);
-        //            cmd.Parameters.Add("p_Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-        //            cmd.Parameters.Add("p_Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-        //            cmd.CommandType = CommandType.StoredProcedure;
-
-        //            oconexion.Open();
-
-        //            cmd.ExecuteNonQuery();
-
-        //            respuesta = Convert.ToBoolean(cmd.Parameters["p_Resultado"].Value);
-        //            Mensaje = cmd.Parameters["p_Mensaje"].Value.ToString();
-
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        respuesta = false;
-        //        Mensaje = ex.Message;
-        //    }
-
-
-
-        //    return respuesta;
-        //}
-
+                    resultado = 0;
+                    Mensaje = ex.Message;
+                }
+            }
+            return resultado;
+        }
 
         //public bool Eliminar(Producto obj, out string Mensaje)
         //{

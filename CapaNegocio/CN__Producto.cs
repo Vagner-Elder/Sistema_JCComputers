@@ -45,6 +45,23 @@ namespace CapaNegocio
             return resultado;
         }
 
+        // Editar Producto
+        public int EditarProducto(Producto obj, out string Mensaje)
+        {
+            Mensaje = string.Empty;
+
+            int resultado = objcd_Producto.EditarProducto(obj.IdProducto, obj.Codigo, obj.TipoProducto.Id, obj.Marca.Id, obj.Modelo.Id, obj.CapacidadTamano.Id, obj.TipoComponente.Id, obj.Stock, obj.PrecioCompra, obj.PrecioVenta, obj.Sucursal.IdSucursal, obj.Estado ? 1 : 0, obj.Descripcion, out Mensaje);
+
+            if(resultado > 0)
+            {
+                Mensaje = "Producto Modificado correctamente.";
+            }
+            else
+            {
+                Mensaje = "Error al Modificar el producto.";
+            }
+            return resultado;
+        }
 
 
         //public bool Editar(Producto obj, out string Mensaje)

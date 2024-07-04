@@ -88,7 +88,7 @@ namespace CapaPresentacion
                 string descripcion = dgvdata.Rows[e.RowIndex].Cells["Descripcion"].Value.ToString();
                 string fechaRegistro = dgvdata.Rows[e.RowIndex].Cells["FechaRegistro"].Value.ToString();
 
-                mdAct_Insert_Producto form = new mdAct_Insert_Producto();
+                mdAct_Insert_Producto form = new mdAct_Insert_Producto(this);
                 form.Show();
                 form.SetDatos(idProducto, codigo, tipoProducto, marca, modelo, capacidadTamano, tipoComponente, stock, precioCompra, precioVenta, sucursal, estado, descripcion, fechaRegistro);
             }
@@ -96,8 +96,36 @@ namespace CapaPresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            mdAct_Insert_Producto frm = new mdAct_Insert_Producto();
+            mdAct_Insert_Producto frm = new mdAct_Insert_Producto(this);
             frm.ShowDialog();
+        }
+
+        public void ActualizarDataGridView()
+        {
+            dgvdata.Rows.Clear(); // Limpiar las filas actuales
+
+            List<Producto> lista = new CN__Producto().Listar();
+            foreach (Producto item in lista)
+            {
+                dgvdata.Rows.Add(new object[]
+                {
+                "",
+                item.IdProducto,
+                item.Codigo,
+                item.TipoProducto.Nombre,
+                item.Marca.Nombre,
+                item.Modelo.Nombre,
+                item.CapacidadTamano.Nombre,
+                item.TipoComponente.Nombre,
+                item.Stock,
+                item.PrecioCompra,
+                item.PrecioVenta,
+                item.Sucursal.Nombre,
+                item.Estado == true ? "Activo" : "No Activo",
+                item.Descripcion,
+                item.FechaRegistro
+                });
+            }
         }
     }
 }

@@ -101,7 +101,7 @@
             // dtFechaRegistro
             // 
             this.dtFechaRegistro.Location = new System.Drawing.Point(303, 380);
-            this.dtFechaRegistro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtFechaRegistro.Margin = new System.Windows.Forms.Padding(2);
             this.dtFechaRegistro.Name = "dtFechaRegistro";
             this.dtFechaRegistro.Size = new System.Drawing.Size(211, 20);
             this.dtFechaRegistro.TabIndex = 121;
@@ -119,7 +119,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(303, 264);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(193, 80);
@@ -148,7 +148,7 @@
             // txtPrecioCompra
             // 
             this.txtPrecioCompra.Location = new System.Drawing.Point(303, 106);
-            this.txtPrecioCompra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrecioCompra.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(170, 20);
             this.txtPrecioCompra.TabIndex = 116;
@@ -166,7 +166,7 @@
             // txtPrecioVenta
             // 
             this.txtPrecioVenta.Location = new System.Drawing.Point(303, 156);
-            this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(170, 20);
             this.txtPrecioVenta.TabIndex = 114;
@@ -184,7 +184,7 @@
             // txtStock
             // 
             this.txtStock.Location = new System.Drawing.Point(303, 57);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(2);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(170, 20);
             this.txtStock.TabIndex = 112;
@@ -204,7 +204,7 @@
             this.cboCapacidadTamanio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCapacidadTamanio.FormattingEnabled = true;
             this.cboCapacidadTamanio.Location = new System.Drawing.Point(30, 263);
-            this.cboCapacidadTamanio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboCapacidadTamanio.Margin = new System.Windows.Forms.Padding(2);
             this.cboCapacidadTamanio.Name = "cboCapacidadTamanio";
             this.cboCapacidadTamanio.Size = new System.Drawing.Size(192, 21);
             this.cboCapacidadTamanio.TabIndex = 110;
@@ -234,7 +234,7 @@
             this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.FormattingEnabled = true;
             this.cboMarca.Location = new System.Drawing.Point(29, 156);
-            this.cboMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboMarca.Margin = new System.Windows.Forms.Padding(2);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(192, 21);
             this.cboMarca.TabIndex = 107;
@@ -246,7 +246,6 @@
             this.txtid.Size = new System.Drawing.Size(25, 20);
             this.txtid.TabIndex = 104;
             this.txtid.Text = "0";
-            this.txtid.Visible = false;
             // 
             // txtindice
             // 
@@ -255,7 +254,6 @@
             this.txtindice.Size = new System.Drawing.Size(25, 20);
             this.txtindice.TabIndex = 105;
             this.txtindice.Text = "-1";
-            this.txtindice.Visible = false;
             // 
             // label9
             // 

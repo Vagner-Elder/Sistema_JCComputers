@@ -25,10 +25,12 @@ namespace CapaPresentacion.Modales
         private CD_Sucursal objc_Sucursal = new CD_Sucursal();
 
         private CD_Producto objcd_Producto = new CD_Producto();
-        public mdAct_Insert_Producto()
+        private formProductoAct _formProductoAct;
+        public mdAct_Insert_Producto( formProductoAct form)
         {
             InitializeComponent();
             InicializarComboBoxEstado();
+            _formProductoAct = form;
         }
 
         private void mdAct_Insert_Producto_Load(object sender, EventArgs e)
@@ -111,34 +113,62 @@ namespace CapaPresentacion.Modales
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
+            string mensaje;
+
             try
             {
-                // Obtener los valores de los controles del formulario
+                int idProducto = Convert.ToInt32(txtid.Text);
                 string codigo = txtcodigo.Text;
-                int idTipoProducto = objc_TipoProducto.ObtenerIdPorNombre(cboTipoProducto.SelectedItem.ToString()); // Debes implementar el método en CD_TipoProducto
-                int idMarca = objcd_Marca.ObtenerIdPorNombre(cboMarca.SelectedItem.ToString()); // Debes implementar el método en CD_Marca
-                int idModelo = objcd_Modelo.ObtenerIdPorNombre(cboModelo.SelectedItem.ToString()); // Debes implementar el método en CD_Modelo
-                int idCapacidadTamano = objcd_CapTam.ObtenerIdPorNombre(cboCapacidadTamanio.SelectedItem.ToString()); // Debes implementar el método en CD_Capacidad_Tam
-                int idTipoComponente = objcd_TipComponente.ObtenerIdPorNombre(cboTipoComponente.SelectedItem.ToString()); // Debes implementar el método en CD_TipoComponente
+                int idTipoProducto = objc_TipoProducto.ObtenerIdPorNombre(cboTipoProducto.SelectedItem.ToString()); 
+                int idMarca = objcd_Marca.ObtenerIdPorNombre(cboMarca.SelectedItem.ToString()); 
+                int idModelo = objcd_Modelo.ObtenerIdPorNombre(cboModelo.SelectedItem.ToString()); 
+                int idCapacidadTamano = objcd_CapTam.ObtenerIdPorNombre(cboCapacidadTamanio.SelectedItem.ToString()); 
+                int idTipoComponente = objcd_TipComponente.ObtenerIdPorNombre(cboTipoComponente.SelectedItem.ToString()); 
                 int stock = Convert.ToInt32(txtStock.Text);
                 decimal precioCompra = Convert.ToDecimal(txtPrecioCompra.Text);
                 decimal precioVenta = Convert.ToDecimal(txtPrecioVenta.Text);
-                int idSucursal = objc_Sucursal.ObtenerIdPorNombre(cboSucursal.SelectedItem.ToString()); // Debes implementar el método en CD_Sucursal
-                int estado = ConvertirEstadoATexto(cboestado.SelectedItem.ToString()); // Utiliza el método ConvertirEstadoATexto existente
+                int idSucursal = objc_Sucursal.ObtenerIdPorNombre(cboSucursal.SelectedItem.ToString()); 
+                int estado = ConvertirEstadoATexto(cboestado.SelectedItem.ToString()); 
                 string descripcion = txtDescripcion.Text;
 
-                // Llamar al método de la capa de negocio para registrar el producto
-                string mensaje;
-                int resultado = objcd_Producto.RegistrarProducto(codigo, idTipoProducto, idMarca, idModelo, idCapacidadTamano, idTipoComponente, stock, precioCompra, precioVenta, idSucursal, estado, descripcion, out mensaje);
 
-                if (resultado > 0)
+                // int resultado = objcd_Producto.RegistrarProducto(codigo, idTipoProducto, idMarca, idModelo, idCapacidadTamano, idTipoComponente, stock, precioCompra, precioVenta, idSucursal, estado, descripcion, out mensaje);
+                int resultado;
+
+                if (idProducto == 0)
                 {
-                    MessageBox.Show("Producto registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Puedes agregar aquí lógica adicional como limpiar el formulario o cerrarlo
+                    resultado = objcd_Producto.RegistrarProducto(codigo, idTipoProducto, idMarca, idModelo, idCapacidadTamano, idTipoComponente, stock, precioCompra, precioVenta, idSucursal, estado, descripcion, out mensaje);
+                   
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("Producto registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Limpiar();
+                        this.Close();
+                        _formProductoAct.ActualizarDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al registrar el producto: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al registrar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    resultado = objcd_Producto.EditarProducto(idProducto, codigo, idTipoProducto, idMarca, idModelo, idCapacidadTamano, idTipoComponente, stock, precioCompra, precioVenta, idSucursal, estado, descripcion, out mensaje);
+                    
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("Producto actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Limpiar();
+                        this.Close();
+                        _formProductoAct.ActualizarDataGridView();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar el producto: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
                 }
             }
             catch (Exception ex)
@@ -146,5 +176,26 @@ namespace CapaPresentacion.Modales
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Limpiar()
+        {
+            txtindice.Text = "-1";
+            txtid.Text = "0";
+            txtcodigo.Text = "";
+            txtStock.Text = "";
+            txtPrecioCompra.Text = "";
+            txtPrecioVenta.Text = "";
+            txtDescripcion.Text = "";
+
+            cboTipoComponente.Items.Clear();
+            cboMarca.Items.Clear();
+            cboModelo.Items.Clear();
+            cboCapacidadTamanio.Items.Clear();
+            cboTipoProducto.Items.Clear();
+            cboestado.Items.Clear();
+            cboSucursal.Items.Clear();
+        }
+        
     }
 }
+
