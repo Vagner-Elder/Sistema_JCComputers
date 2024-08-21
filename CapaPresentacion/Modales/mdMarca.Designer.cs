@@ -92,6 +92,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "mdMarca";
             this.Text = "mdMarca";
+            this.Load += new System.EventHandler(this.mdMarca_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

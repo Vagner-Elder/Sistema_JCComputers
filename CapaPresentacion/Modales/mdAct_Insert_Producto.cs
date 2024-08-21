@@ -195,7 +195,66 @@ namespace CapaPresentacion.Modales
             cboestado.Items.Clear();
             cboSucursal.Items.Clear();
         }
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (mdMarca form_Marca = new mdMarca())
+            {
+                if(form_Marca.ShowDialog() == DialogResult.OK)
+                {
+                    CargarComboBoxes();
+                    cboMarca.SelectedIndex = cboMarca.Items.Count - 1;
+                }
+            }
+        }
+
+        private void btn_new_nombpro_Click(object sender, EventArgs e)
+        {
+            using (mdTipo_Producto form_Tipo_Producto = new mdTipo_Producto())
+            {
+                if (form_Tipo_Producto.ShowDialog() == DialogResult.OK)
+                {
+                    CargarComboBoxes();
+                    cboTipoProducto.SelectedIndex = cboTipoProducto.Items.Count - 1;
+                }
+            }
+        }
+
+        private void btn_new_modelo_Click(object sender, EventArgs e)
+        {
+            using (mdModelo form = new mdModelo())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    CargarComboBoxes();
+                    cboModelo.SelectedIndex = cboModelo.Items.Count - 1;
+                }
+            }
+        }
+
+        private void btn_new_capacidad_Click(object sender, EventArgs e)
+        {
+            using (mdCapacidadTam form = new mdCapacidadTam())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    CargarComboBoxes();
+                    cboCapacidadTamanio.SelectedIndex = cboCapacidadTamanio.Items.Count - 1;
+                }
+            }
+        }
+
+        private void btn_new_tipocop_Click(object sender, EventArgs e)
+        {
+            using (mdTipoComponente form = new mdTipoComponente())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    CargarComboBoxes();
+                    cboTipoComponente.SelectedIndex = cboTipoComponente.Items.Count - 1;
+                }
+            }
+        }
     }
 }
 

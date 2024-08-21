@@ -66,10 +66,9 @@
             this.btnexportar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnexportar.IconSize = 17;
             this.btnexportar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnexportar.Location = new System.Drawing.Point(29, 60);
-            this.btnexportar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnexportar.Location = new System.Drawing.Point(22, 49);
             this.btnexportar.Name = "btnexportar";
-            this.btnexportar.Size = new System.Drawing.Size(157, 26);
+            this.btnexportar.Size = new System.Drawing.Size(118, 21);
             this.btnexportar.TabIndex = 215;
             this.btnexportar.Text = "Descargar Excel";
             this.btnexportar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -87,39 +86,35 @@
             this.btnbuscar.IconColor = System.Drawing.Color.Black;
             this.btnbuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnbuscar.IconSize = 16;
-            this.btnbuscar.Location = new System.Drawing.Point(997, 58);
-            this.btnbuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnbuscar.Location = new System.Drawing.Point(748, 47);
             this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(56, 28);
+            this.btnbuscar.Size = new System.Drawing.Size(42, 23);
             this.btnbuscar.TabIndex = 214;
             this.btnbuscar.UseVisualStyleBackColor = false;
             // 
             // txtbusqueda
             // 
-            this.txtbusqueda.Location = new System.Drawing.Point(784, 60);
-            this.txtbusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbusqueda.Location = new System.Drawing.Point(588, 49);
             this.txtbusqueda.Name = "txtbusqueda";
-            this.txtbusqueda.Size = new System.Drawing.Size(201, 22);
+            this.txtbusqueda.Size = new System.Drawing.Size(152, 20);
             this.txtbusqueda.TabIndex = 213;
             // 
             // cbobusqueda
             // 
             this.cbobusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbobusqueda.FormattingEnabled = true;
-            this.cbobusqueda.Location = new System.Drawing.Point(621, 59);
-            this.cbobusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbobusqueda.Location = new System.Drawing.Point(466, 48);
             this.cbobusqueda.Name = "cbobusqueda";
-            this.cbobusqueda.Size = new System.Drawing.Size(153, 24);
+            this.cbobusqueda.Size = new System.Drawing.Size(116, 21);
             this.cbobusqueda.TabIndex = 212;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(532, 64);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(399, 52);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 16);
+            this.label11.Size = new System.Drawing.Size(61, 13);
             this.label11.TabIndex = 211;
             this.label11.Text = "Buscar por:";
             // 
@@ -128,11 +123,10 @@
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 11);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(12, 9);
             this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(4, 7, 0, 0);
-            this.label10.Size = new System.Drawing.Size(1121, 91);
+            this.label10.Padding = new System.Windows.Forms.Padding(3, 6, 0, 0);
+            this.label10.Size = new System.Drawing.Size(841, 74);
             this.label10.TabIndex = 210;
             this.label10.Text = "Lista de Productos:";
             // 
@@ -166,8 +160,7 @@
             this.Estado,
             this.Descripcion,
             this.FechaRegistro});
-            this.dgvdata.Location = new System.Drawing.Point(16, 123);
-            this.dgvdata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvdata.Location = new System.Drawing.Point(12, 100);
             this.dgvdata.MultiSelect = false;
             this.dgvdata.Name = "dgvdata";
             this.dgvdata.ReadOnly = true;
@@ -176,17 +169,16 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvdata.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvdata.RowTemplate.Height = 28;
-            this.dgvdata.Size = new System.Drawing.Size(1459, 441);
+            this.dgvdata.Size = new System.Drawing.Size(1094, 358);
             this.dgvdata.TabIndex = 216;
             this.dgvdata.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvdata_CellContentClick_1);
             this.dgvdata.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvdata_CellPainting);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(297, 59);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Location = new System.Drawing.Point(223, 48);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(141, 28);
+            this.btnNuevo.Size = new System.Drawing.Size(106, 23);
             this.btnNuevo.TabIndex = 217;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -315,9 +307,9 @@
             // 
             // formProductoAct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1577, 597);
+            this.ClientSize = new System.Drawing.Size(1183, 485);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvdata);
             this.Controls.Add(this.btnexportar);
@@ -326,7 +318,6 @@
             this.Controls.Add(this.cbobusqueda);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "formProductoAct";
             this.Text = "formProductoAct";
             this.Load += new System.EventHandler(this.formProductoAct_Load);

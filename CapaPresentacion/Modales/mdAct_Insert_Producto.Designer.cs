@@ -60,6 +60,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cboTipoProducto = new System.Windows.Forms.ComboBox();
+            this.btn_new_marca = new System.Windows.Forms.Button();
+            this.btn_new_nombpro = new System.Windows.Forms.Button();
+            this.btn_new_modelo = new System.Windows.Forms.Button();
+            this.btn_new_capacidad = new System.Windows.Forms.Button();
+            this.btn_new_tipocop = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cboSucursal
@@ -246,6 +251,7 @@
             this.txtid.Size = new System.Drawing.Size(25, 20);
             this.txtid.TabIndex = 104;
             this.txtid.Text = "0";
+            this.txtid.Visible = false;
             // 
             // txtindice
             // 
@@ -254,6 +260,7 @@
             this.txtindice.Size = new System.Drawing.Size(25, 20);
             this.txtindice.TabIndex = 105;
             this.txtindice.Text = "-1";
+            this.txtindice.Visible = false;
             // 
             // label9
             // 
@@ -393,11 +400,66 @@
             this.cboTipoProducto.Size = new System.Drawing.Size(192, 21);
             this.cboTipoProducto.TabIndex = 126;
             // 
+            // btn_new_marca
+            // 
+            this.btn_new_marca.Location = new System.Drawing.Point(235, 156);
+            this.btn_new_marca.Name = "btn_new_marca";
+            this.btn_new_marca.Size = new System.Drawing.Size(36, 23);
+            this.btn_new_marca.TabIndex = 127;
+            this.btn_new_marca.Text = "+";
+            this.btn_new_marca.UseVisualStyleBackColor = true;
+            this.btn_new_marca.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_new_nombpro
+            // 
+            this.btn_new_nombpro.Location = new System.Drawing.Point(235, 106);
+            this.btn_new_nombpro.Name = "btn_new_nombpro";
+            this.btn_new_nombpro.Size = new System.Drawing.Size(36, 24);
+            this.btn_new_nombpro.TabIndex = 128;
+            this.btn_new_nombpro.Text = "+";
+            this.btn_new_nombpro.UseVisualStyleBackColor = true;
+            this.btn_new_nombpro.Click += new System.EventHandler(this.btn_new_nombpro_Click);
+            // 
+            // btn_new_modelo
+            // 
+            this.btn_new_modelo.Location = new System.Drawing.Point(235, 206);
+            this.btn_new_modelo.Name = "btn_new_modelo";
+            this.btn_new_modelo.Size = new System.Drawing.Size(36, 23);
+            this.btn_new_modelo.TabIndex = 129;
+            this.btn_new_modelo.Text = "+";
+            this.btn_new_modelo.UseVisualStyleBackColor = true;
+            this.btn_new_modelo.Click += new System.EventHandler(this.btn_new_modelo_Click);
+            // 
+            // btn_new_capacidad
+            // 
+            this.btn_new_capacidad.Location = new System.Drawing.Point(235, 263);
+            this.btn_new_capacidad.Name = "btn_new_capacidad";
+            this.btn_new_capacidad.Size = new System.Drawing.Size(36, 23);
+            this.btn_new_capacidad.TabIndex = 130;
+            this.btn_new_capacidad.Text = "+";
+            this.btn_new_capacidad.UseVisualStyleBackColor = true;
+            this.btn_new_capacidad.Click += new System.EventHandler(this.btn_new_capacidad_Click);
+            // 
+            // btn_new_tipocop
+            // 
+            this.btn_new_tipocop.Location = new System.Drawing.Point(235, 321);
+            this.btn_new_tipocop.Name = "btn_new_tipocop";
+            this.btn_new_tipocop.Size = new System.Drawing.Size(36, 23);
+            this.btn_new_tipocop.TabIndex = 131;
+            this.btn_new_tipocop.Text = "+";
+            this.btn_new_tipocop.UseVisualStyleBackColor = true;
+            this.btn_new_tipocop.Click += new System.EventHandler(this.btn_new_tipocop_Click);
+            // 
             // mdAct_Insert_Producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 516);
+            this.Controls.Add(this.btn_new_tipocop);
+            this.Controls.Add(this.btn_new_capacidad);
+            this.Controls.Add(this.btn_new_modelo);
+            this.Controls.Add(this.btn_new_nombpro);
+            this.Controls.Add(this.btn_new_marca);
             this.Controls.Add(this.cboTipoProducto);
             this.Controls.Add(this.cboSucursal);
             this.Controls.Add(this.cboestado);
@@ -472,5 +534,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboTipoProducto;
+        private System.Windows.Forms.Button btn_new_marca;
+        private System.Windows.Forms.Button btn_new_nombpro;
+        private System.Windows.Forms.Button btn_new_modelo;
+        private System.Windows.Forms.Button btn_new_capacidad;
+        private System.Windows.Forms.Button btn_new_tipocop;
     }
 }

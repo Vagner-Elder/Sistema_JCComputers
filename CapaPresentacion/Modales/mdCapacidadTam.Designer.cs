@@ -91,6 +91,7 @@
             this.Controls.Add(this.label1);
             this.Name = "mdCapacidadTam";
             this.Text = "mdCapacidadTam";
+            this.Load += new System.EventHandler(this.mdCapacidadTam_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

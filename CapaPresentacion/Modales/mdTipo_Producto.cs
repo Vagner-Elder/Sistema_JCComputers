@@ -25,7 +25,17 @@ namespace CapaPresentacion.Modales
 
         private void mdTipo_Producto_Load(object sender, EventArgs e)
         {
-
+            //Mostrar las Marcas
+            List<Tipo_Producto> lista = new CN_TipoProducto().Listar();
+            foreach (Tipo_Producto item in lista)
+            {
+                dgv_Tipo_Producto.Rows.Add(new object[]
+                {
+                    "",
+                    item.Id,
+                    item.Nombre
+                });
+            }
         }
 
         private void btnGuardarTP_Click(object sender, EventArgs e)
@@ -43,6 +53,8 @@ namespace CapaPresentacion.Modales
                 if(idgenerado != 0)
                 {
                     MessageBox.Show("Registro exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {
@@ -53,6 +65,16 @@ namespace CapaPresentacion.Modales
             else
             {
                 bool resultado = new CN_TipoProducto().Editar(objTipoProducto, out mensaje);
+                if (resultado)
+                {
+                    MessageBox.Show("Actualización exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error al actualizar: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
 
@@ -62,6 +84,22 @@ namespace CapaPresentacion.Modales
         {
             txtId.Text = "0";
             txtN_TipProducto.Text = "";
+        }
+
+        private void dgv_Tipo_Producto_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex != 0)
+                return;
+
+            e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+            var w = Properties.Resources.check20.Width;
+            var h = Properties.Resources.check20.Height;
+            var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+            var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+            e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
+            e.Handled = true;
         }
     }
 }

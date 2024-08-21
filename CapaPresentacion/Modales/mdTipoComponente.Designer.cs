@@ -91,6 +91,7 @@
             this.Controls.Add(this.label1);
             this.Name = "mdTipoComponente";
             this.Text = "mdTipoComponente";
+            this.Load += new System.EventHandler(this.mdTipoComponente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

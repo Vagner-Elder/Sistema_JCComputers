@@ -91,6 +91,7 @@
             this.Controls.Add(this.label1);
             this.Name = "mdModelo";
             this.Text = "mdModelo";
+            this.Load += new System.EventHandler(this.mdModelo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

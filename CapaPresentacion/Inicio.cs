@@ -128,7 +128,7 @@ namespace CapaPresentacion
 
         private void submenunegocio_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menumantenedor, new frmNegocio());
+            //
         }
 
         private void submenureportecompras_Click(object sender, EventArgs e)
@@ -157,6 +157,36 @@ namespace CapaPresentacion
         private void menutitulo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void tipoDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mdTipo_Producto form = new mdTipo_Producto();
+            form.ShowDialog();
+        }
+
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mdMarca form = new mdMarca();
+            form.ShowDialog();
+        }
+
+        private void modeloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mdModelo form = new mdModelo();
+            form.ShowDialog();
+        }
+
+        private void capacidadTamañoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mdCapacidadTam form = new mdCapacidadTam();
+            form.ShowDialog();
+        }
+
+        private void tipoDeComponenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mdTipoComponente form = new mdTipoComponente();
+            form.ShowDialog();
         }
     }
 }

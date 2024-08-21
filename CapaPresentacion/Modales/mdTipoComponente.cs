@@ -37,6 +37,8 @@ namespace CapaPresentacion.Modales
                 if (idgenerado != 0)
                 {
                     MessageBox.Show("Registro exitoso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {
@@ -47,7 +49,16 @@ namespace CapaPresentacion.Modales
             else
             {
                 bool resultado = new CN_TipoComponente().Editar(objTipoComp, out mensaje);
-
+                if (resultado)
+                {
+                    MessageBox.Show("Actualización exitosa", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error al actualizar: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -57,5 +68,9 @@ namespace CapaPresentacion.Modales
             txtN_TipComp.Text = "";
         }
 
+        private void mdTipoComponente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
