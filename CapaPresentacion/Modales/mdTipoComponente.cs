@@ -70,7 +70,92 @@ namespace CapaPresentacion.Modales
 
         private void mdTipoComponente_Load(object sender, EventArgs e)
         {
+            btnEliminar.Enabled = false;
 
+            List<Tipo_Componente> lista = new CN_TipoComponente().Listar();
+            foreach (Tipo_Componente item in lista)
+            {
+                dgv_Tipo_Modelo.Rows.Add(new object[]
+                {
+                    "",
+                    item.Id,
+                    item.Nombre
+                });
+            }
+        }
+
+        private void dgv_Tipo_Modelo_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex != 0)
+                return;
+
+            e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+            var w = Properties.Resources.check20.Width;
+            var h = Properties.Resources.check20.Height;
+            var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+            var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+            e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
+            e.Handled = true;
+        }
+
+        private void dgv_Tipo_Modelo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                txtId.Text = dgv_Tipo_Modelo.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                txtN_TipComp.Text = dgv_Tipo_Modelo.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+
+                btnEliminar.Enabled = true;
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "0")
+            {
+                Tipo_Componente objTipoComponente = new Tipo_Componente()
+                {
+                    Id = Convert.ToInt32(txtId.Text)
+                };
+
+                string mensaje;
+                bool resultado = new CN_TipoComponente().Eliminar(objTipoComponente, out mensaje);
+                if (resultado)
+                {
+                    MessageBox.Show("Eliminado Correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
+                    btnEliminar.Enabled = false; 
+                    dgv_Tipo_Modelo.Rows.Clear();
+
+                    List<Tipo_Componente> lista = new CN_TipoComponente().Listar();
+                    foreach (Tipo_Componente item in lista)
+                    {
+                        dgv_Tipo_Modelo.Rows.Add(new object[]
+                        {
+                             "",
+                            item.Id,
+                            item.Nombre
+                        });
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Error al Eliminar: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un componente para eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            btnEliminar.Enabled = false;
         }
     }
 }

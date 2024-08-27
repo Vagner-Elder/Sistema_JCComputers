@@ -25,11 +25,13 @@ namespace CapaPresentacion.Modales
 
         private void mdTipo_Producto_Load(object sender, EventArgs e)
         {
+            btnEliminar.Enabled = false;
+
             //Mostrar las Marcas
             List<Tipo_Producto> lista = new CN_TipoProducto().Listar();
             foreach (Tipo_Producto item in lista)
             {
-                dgv_Tipo_Producto.Rows.Add(new object[]
+                dgv_Tipo_Productos.Rows.Add(new object[]
                 {
                     "",
                     item.Id,
@@ -86,7 +88,7 @@ namespace CapaPresentacion.Modales
             txtN_TipProducto.Text = "";
         }
 
-        private void dgv_Tipo_Producto_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void dgv_Tipo_Productos_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex != 0)
                 return;
@@ -100,6 +102,64 @@ namespace CapaPresentacion.Modales
 
             e.Graphics.DrawImage(Properties.Resources.check20, new Rectangle(x, y, w, h));
             e.Handled = true;
+        }
+
+        private void dgv_Tipo_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+            {
+                txtId.Text = dgv_Tipo_Productos.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                txtN_TipProducto.Text = dgv_Tipo_Productos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+
+                btnEliminar.Enabled = true;
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            btnEliminar.Enabled = false;
+            Limpiar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (txtId.Text != "0")
+            {
+                Tipo_Producto objTioProducto = new Tipo_Producto()
+                {
+                    Id = Convert.ToInt32(txtId.Text)
+                };
+               
+                string mensaje;
+                bool resultado = new CN_TipoProducto().Eliminar(objTioProducto, out mensaje);
+                if (resultado)
+                {
+                    MessageBox.Show("Eliminado Correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar(); 
+                    btnEliminar.Enabled = false;
+                    dgv_Tipo_Productos.Rows.Clear();
+
+                    List<Tipo_Producto> lista = new CN_TipoProducto().Listar();
+                    foreach (Tipo_Producto item in lista)
+                    {
+                        dgv_Tipo_Productos.Rows.Add(new object[]
+                        {
+                    "",
+                    item.Id,
+                    item.Nombre
+                        });
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error al Eliminar: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un producto para eliminar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ using CapaEntidad;
 using CapaNegocio;
 using CapaPresentacion.Modales;
 using FontAwesome.Sharp;
+using CapaPresentacion;
 
 
 namespace CapaPresentacion
@@ -143,8 +144,7 @@ namespace CapaPresentacion
 
         private void menuacercade_Click(object sender, EventArgs e)
         {
-            mdAcercade md = new mdAcercade();
-            md.ShowDialog();
+            AbrirFormulario(menumantenedor, new formProductoAct());
         }
 
         private void btnsalir_Click(object sender, EventArgs e)
@@ -161,32 +161,32 @@ namespace CapaPresentacion
 
         private void tipoDeProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mdTipo_Producto form = new mdTipo_Producto();
-            form.ShowDialog();
+            AbrirFormulario(menumantenedor, new mdTipo_Producto());
         }
 
         private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mdMarca form = new mdMarca();
-            form.ShowDialog();
+            AbrirFormulario(menumantenedor, new mdMarca());
         }
 
         private void modeloToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mdModelo form = new mdModelo();
-            form.ShowDialog();
+            AbrirFormulario(menumantenedor, new mdModelo());
         }
 
         private void capacidadTamañoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mdCapacidadTam form = new mdCapacidadTam();
-            form.ShowDialog();
+            AbrirFormulario(menumantenedor, new mdCapacidadTam());
         }
 
         private void tipoDeComponenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mdTipoComponente form = new mdTipoComponente();
-            form.ShowDialog();
+            AbrirFormulario(menumantenedor, new mdTipoComponente());
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menumantenedor, new frmUsuarios());
         }
     }
 }
