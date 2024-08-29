@@ -513,6 +513,7 @@ BEGIN
 END //
 
 -- PROCEDIMIENTO PARA MODIFICAR PRODUCTOS
+
  DELIMITER //
 CREATE PROCEDURE EditarProducto(
     IN p_IdProducto INT,
@@ -553,7 +554,97 @@ BEGIN
     SET p_Resultado = ROW_COUNT();
 END //
 
-drop procedure EditarProducto
+-- PROCEDIMIENTO PARA BUSCAR PRODUCTOS
+DELIMITER //
+CREATE PROCEDURE BuscarProducto(IN criterio VARCHAR(50), IN valor VARCHAR(100))
+BEGIN
+    IF criterio = 'Serial' THEN
+        SELECT p.*
+        FROM PRODUCTO p
+        WHERE p.Codigo LIKE CONCAT('%', valor, '%');
+        
+    ELSEIF criterio = 'Producto' THEN
+        SELECT p.*
+        FROM PRODUCTO p
+        JOIN Tipo_Producto tp ON p.Id_Tipo_Producto = tp.Id
+        WHERE tp.Nombre LIKE CONCAT('%', valor, '%');
+        
+    ELSEIF criterio = 'Marca' THEN
+        SELECT p.*
+        FROM PRODUCTO p
+        JOIN Marca m ON p.Id_Marca = m.Id
+        WHERE m.Nombre LIKE CONCAT('%', valor, '%');
+        
+    ELSEIF criterio = 'Modelo' THEN
+        SELECT p.*
+        FROM PRODUCTO p
+        JOIN Modelo mo ON p.Id_Modelo = mo.Id
+        WHERE mo.Nombre LIKE CONCAT('%', valor, '%');
+        
+    END IF;
+END //
+
+*************************
+DELIMITER //
+CREATE PROCEDURE BuscarProducto(IN criterio VARCHAR(50), IN valor VARCHAR(100))
+BEGIN
+    IF criterio = 'Serial' THEN
+        SELECT p.IdProducto, p.Codigo, tp.Nombre AS TipoProducto, m.Nombre AS Marca, mo.Nombre AS Modelo,
+               c.Nombre AS CapacidadTamano, tc.Nombre AS TipoComponente, p.Stock, p.PrecioCompra,
+               p.PrecioVenta, s.Nombre AS Sucursal, p.Estado, p.Descripcion, p.FechaRegistro
+        FROM PRODUCTO p
+        LEFT JOIN Tipo_Producto tp ON p.Id_Tipo_Producto = tp.Id
+        LEFT JOIN Marca m ON p.Id_Marca = m.Id
+        LEFT JOIN Modelo mo ON p.Id_Modelo = mo.Id
+        LEFT JOIN Capacidad_Tamanio c ON p.Id_Capacidad_Tamanio = c.Id
+        LEFT JOIN Tipo_Componente tc ON p.Id_Tipo_Componente = tc.Id
+        LEFT JOIN SUCURSAL s ON p.Id_Sucursal = s.IdSucursal
+        WHERE p.Codigo LIKE CONCAT('%', valor, '%');
+        
+    ELSEIF criterio = 'Producto' THEN
+        SELECT p.IdProducto, p.Codigo, tp.Nombre AS TipoProducto, m.Nombre AS Marca, mo.Nombre AS Modelo,
+               c.Nombre AS CapacidadTamano, tc.Nombre AS TipoComponente, p.Stock, p.PrecioCompra,
+               p.PrecioVenta, s.Nombre AS Sucursal, p.Estado, p.Descripcion, p.FechaRegistro
+        FROM PRODUCTO p
+        LEFT JOIN Tipo_Producto tp ON p.Id_Tipo_Producto = tp.Id
+        LEFT JOIN Marca m ON p.Id_Marca = m.Id
+        LEFT JOIN Modelo mo ON p.Id_Modelo = mo.Id
+        LEFT JOIN Capacidad_Tamanio c ON p.Id_Capacidad_Tamanio = c.Id
+        LEFT JOIN Tipo_Componente tc ON p.Id_Tipo_Componente = tc.Id
+        LEFT JOIN SUCURSAL s ON p.Id_Sucursal = s.IdSucursal
+        WHERE tp.Nombre LIKE CONCAT('%', valor, '%');
+        
+    ELSEIF criterio = 'Marca' THEN
+        SELECT p.IdProducto, p.Codigo, tp.Nombre AS TipoProducto, m.Nombre AS Marca, mo.Nombre AS Modelo,
+               c.Nombre AS CapacidadTamano, tc.Nombre AS TipoComponente, p.Stock, p.PrecioCompra,
+               p.PrecioVenta, s.Nombre AS Sucursal, p.Estado, p.Descripcion, p.FechaRegistro
+        FROM PRODUCTO p
+        LEFT JOIN Tipo_Producto tp ON p.Id_Tipo_Producto = tp.Id
+        LEFT JOIN Marca m ON p.Id_Marca = m.Id
+        LEFT JOIN Modelo mo ON p.Id_Modelo = mo.Id
+        LEFT JOIN Capacidad_Tamanio c ON p.Id_Capacidad_Tamanio = c.Id
+        LEFT JOIN Tipo_Componente tc ON p.Id_Tipo_Componente = tc.Id
+        LEFT JOIN SUCURSAL s ON p.Id_Sucursal = s.IdSucursal
+        WHERE m.Nombre LIKE CONCAT('%', valor, '%');
+        
+    ELSEIF criterio = 'Modelo' THEN
+        SELECT p.IdProducto, p.Codigo, tp.Nombre AS TipoProducto, m.Nombre AS Marca, mo.Nombre AS Modelo,
+               c.Nombre AS CapacidadTamano, tc.Nombre AS TipoComponente, p.Stock, p.PrecioCompra,
+               p.PrecioVenta, s.Nombre AS Sucursal, p.Estado, p.Descripcion, p.FechaRegistro
+        FROM PRODUCTO p
+        LEFT JOIN Tipo_Producto tp ON p.Id_Tipo_Producto = tp.Id
+        LEFT JOIN Marca m ON p.Id_Marca = m.Id
+        LEFT JOIN Modelo mo ON p.Id_Modelo = mo.Id
+        LEFT JOIN Capacidad_Tamanio c ON p.Id_Capacidad_Tamanio = c.Id
+        LEFT JOIN Tipo_Componente tc ON p.Id_Tipo_Componente = tc.Id
+        LEFT JOIN SUCURSAL s ON p.Id_Sucursal = s.IdSucursal
+        WHERE mo.Nombre LIKE CONCAT('%', valor, '%');
+        
+    END IF;
+END //
+
+CALL BuscarProducto('Modelo', 'Ninguno');
+drop procedure BuscarProducto
 
 
 select * from Capacidad_Tamanio

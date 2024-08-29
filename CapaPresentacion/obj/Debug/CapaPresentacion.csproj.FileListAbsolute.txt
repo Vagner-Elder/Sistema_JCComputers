@@ -164,3 +164,10 @@ C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaPresentacion
 C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaPresentacion\obj\Debug\CapaPres.61CA7C38.Up2Date
 C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaPresentacion\obj\Debug\SistemaVentasDemo.exe
 C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaPresentacion\obj\Debug\SistemaVentasDemo.pdb
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\System.Configuration.ConfigurationManager.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\System.Configuration.ConfigurationManager.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdExporProductos.resources

@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DocumentFormat.OpenXml.Wordprocessing;
 using CapaPresentacion.Modales;
+using System.Web;
+using CapaDatos;
+using MySql.Data.MySqlClient;
+using ClosedXML.Excel;
 
 namespace CapaPresentacion
 {
@@ -24,8 +28,15 @@ namespace CapaPresentacion
 
         private void formProductoAct_Load(object sender, EventArgs e)
         {
-            //MOSTRAR TODOS LOS PRODUCTOS
+            cbobusqueda.Items.Add(new { Text = "Serial", Value = "Serial" });
+            cbobusqueda.Items.Add(new { Text = "Producto", Value = "Producto" });
+            cbobusqueda.Items.Add(new { Text = "Marca", Value = "Marca" });
+            cbobusqueda.Items.Add(new { Text = "Modelo", Value = "Modelo" });
+            cbobusqueda.DisplayMember = "Text";
+            cbobusqueda.ValueMember = "Value";
+            cbobusqueda.SelectedIndex = 0;
 
+            //MOSTRAR TODOS LOS PRODUCTOS
             List<Producto> lista = new CN__Producto().Listar();
             foreach (Producto item in lista)
             {
@@ -127,5 +138,67 @@ namespace CapaPresentacion
                 });
             }
         }
+
+        private void cbobusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            string criterio = ((dynamic)cbobusqueda.SelectedItem).Value;
+            string valor = txtbusqueda.Text.Trim();
+
+            using (MySqlConnection oConexion = new MySqlConnection(Conexion.cadena))
+            {
+                oConexion.Open();
+                using (MySqlCommand cmd = new MySqlCommand("BuscarProducto", oConexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("criterio", criterio);
+                    cmd.Parameters.AddWithValue("valor", valor);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        dgvdata.Rows.Clear();
+                        while (reader.Read())
+                        {
+                            dgvdata.Rows.Add(new object[]
+                            {
+                                "",
+                                reader["IdProducto"],
+                                reader["Codigo"],
+                                reader["TipoProducto"],
+                                reader["Marca"],
+                                reader["Modelo"],
+                                reader["CapacidadTamano"],
+                                reader["TipoComponente"],
+                                reader["Stock"],
+                                reader["PrecioCompra"],
+                                reader["PrecioVenta"],
+                                reader["Sucursal"],
+                                reader["Estado"].ToString() == "1" ? "Activo" : "No Activo",
+                                reader["Descripcion"],
+                                reader["FechaRegistro"]
+                            });
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtbusqueda.Text = "";
+            ActualizarDataGridView();
+        }
+
+        private void btnexportar_Click(object sender, EventArgs e)
+        {
+            mdExporProductos form = new mdExporProductos();
+            form.ShowDialog();
+        }
+
     }
 }
