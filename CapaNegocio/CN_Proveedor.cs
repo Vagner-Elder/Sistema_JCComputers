@@ -28,14 +28,14 @@ namespace CapaNegocio
                 Mensaje += "Es necesario el documento del Proveedor\n";
             }
 
+            if (obj.TipoDocumento == "")
+            {
+                Mensaje += "Es necesario el Tipo de Documento del Proveedor\n";
+            }
+
             if (obj.RazonSocial == "")
             {
                 Mensaje += "Es necesario la razon social del Proveedor\n";
-            }
-
-            if (obj.Correo == "")
-            {
-                Mensaje += "Es necesario la correo del Proveedor\n";
             }
 
             if (Mensaje != string.Empty)
@@ -46,7 +46,6 @@ namespace CapaNegocio
             {
                 return objcd_Proveedor.Registrar(obj, out Mensaje);
             }
-
 
         }
 
@@ -61,17 +60,15 @@ namespace CapaNegocio
                 Mensaje += "Es necesario el documento del Proveedor\n";
             }
 
+            if (obj.TipoDocumento == "")
+            {
+                Mensaje += "Es necesario el Tipo de Documento del Proveedor\n";
+            }
+
             if (obj.RazonSocial == "")
             {
                 Mensaje += "Es necesario la razon social del Proveedor\n";
             }
-
-            if (obj.Correo == "")
-            {
-                Mensaje += "Es necesario la correo del Proveedor\n";
-            }
-
-
 
             if (Mensaje != string.Empty)
             {

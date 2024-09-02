@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaDatos;
+using MySql.Data.MySqlClient;
 
 namespace CapaPresentacion
 {
@@ -37,90 +39,36 @@ namespace CapaPresentacion
                     cbobusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
                 }
             }
+
             cbobusqueda.DisplayMember = "Texto";
             cbobusqueda.ValueMember = "Valor";
             cbobusqueda.SelectedIndex = 0;
 
             List<Proveedor> lista = new CN_Proveedor().Listar();
-
             foreach (Proveedor item in lista)
             {
-                dgvdata.Rows.Add(new object[] {"",item.IdProveedor,item.Documento,item.RazonSocial,item.Correo,item.Telefono,
-                    item.Estado == true ? 1 : 0 ,
+                dgvdata.Rows.Add(new object[]
+                {
+                    "",
+                    item.IdProveedor,
+                    item.Documento,
+                    item.TipoDocumento,
+                    item.RazonSocial,
+                    item.Telefono,
+                    item.Estado == true ? 1 : 0,
                     item.Estado == true ? "Activo" : "No Activo"
                 });
             }
 
         }
 
-        private void btnguardar_Click(object sender, EventArgs e)
-        {
-            string mensaje = string.Empty;
-
-            Proveedor obj = new Proveedor()
-            {
-                IdProveedor = Convert.ToInt32(txtid.Text),
-                Documento = txtdocumento.Text,
-                RazonSocial = txtrazonsocial.Text,
-                Correo = txtcorreo.Text,
-                Telefono = txttelefono.Text,
-                Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
-            };
-
-            if (obj.IdProveedor == 0)
-            {
-                int idgenerado = new CN_Proveedor().Registrar(obj, out mensaje);
-
-                if (idgenerado != 0)
-                {
-
-                    dgvdata.Rows.Add(new object[] {"",idgenerado,txtdocumento.Text,txtrazonsocial.Text,txtcorreo.Text,txttelefono.Text,
-                        ((OpcionCombo)cboestado.SelectedItem).Valor.ToString(),
-                        ((OpcionCombo)cboestado.SelectedItem).Texto.ToString()
-                    });
-
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
-
-
-            }
-            else
-            {
-                bool resultado = new CN_Proveedor().Editar(obj, out mensaje);
-
-                if (resultado)
-                {
-                    DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
-                    row.Cells["Id"].Value = txtid.Text;
-                    row.Cells["Documento"].Value = txtdocumento.Text;
-                    row.Cells["RazonSocial"].Value = txtrazonsocial.Text;
-                    row.Cells["Correo"].Value = txtcorreo.Text;
-                    row.Cells["Telefono"].Value = txttelefono.Text;
-                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
-                    row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
-            }
-
-
-        }
-
-
         private void Limpiar()
         {
             txtindice.Text = "-1";
             txtid.Text = "0";
             txtdocumento.Text = "";
-            txtrazonsocial.Text = "";
-            txtcorreo.Text = "";
+            txtTipoDocumento.Text = "";
+            txtRazonSocial.Text = "";
             txttelefono.Text = "";
             cboestado.SelectedIndex = 0;
             txtdocumento.Select();
@@ -161,8 +109,8 @@ namespace CapaPresentacion
                     txtindice.Text = indice.ToString();
                     txtid.Text = dgvdata.Rows[indice].Cells["Id"].Value.ToString();
                     txtdocumento.Text = dgvdata.Rows[indice].Cells["Documento"].Value.ToString();
-                    txtrazonsocial.Text = dgvdata.Rows[indice].Cells["RazonSocial"].Value.ToString();
-                    txtcorreo.Text = dgvdata.Rows[indice].Cells["Correo"].Value.ToString();
+                    txtTipoDocumento.Text = dgvdata.Rows[indice].Cells["TipoDocumento"].Value.ToString();
+                    txtRazonSocial.Text = dgvdata.Rows[indice].Cells["RazonSocial"].Value.ToString();
                     txttelefono.Text = dgvdata.Rows[indice].Cells["Telefono"].Value.ToString();
 
                     foreach (OpcionCombo oc in cboestado.Items)
@@ -182,38 +130,9 @@ namespace CapaPresentacion
             }
         }
 
-        private void btneliminar_Click(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(txtid.Text) != 0)
-            {
-                if (MessageBox.Show("¿Desea eliminar el proveedor", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    string mensaje = string.Empty;
-                    Proveedor obj = new Proveedor()
-                    {
-                        IdProveedor = Convert.ToInt32(txtid.Text)
-                    };
-
-                    bool respuesta = new CN_Proveedor().Eliminar(obj, out mensaje);
-
-                    if (respuesta)
-                    {
-                        dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
-                        Limpiar();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-
-                }
-            }
-        }
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-
             string columnaFiltro = ((OpcionCombo)cbobusqueda.SelectedItem).Valor.ToString();
 
             if (dgvdata.Rows.Count > 0)
@@ -241,6 +160,98 @@ namespace CapaPresentacion
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            string mensaje = string.Empty;
+
+            Proveedor obj = new Proveedor()
+            {
+                IdProveedor = Convert.ToInt32(txtid.Text),
+                Documento = txtdocumento.Text,
+                TipoDocumento = txtTipoDocumento.Text,
+                RazonSocial = txtRazonSocial.Text,
+                Telefono = txttelefono.Text,
+                Estado = Convert.ToInt32(((OpcionCombo)cboestado.SelectedItem).Valor) == 1 ? true : false
+            };
+
+            if (obj.IdProveedor == 0)
+            {
+                int idgenerado = new CN_Proveedor().Registrar(obj, out mensaje);
+
+                if (idgenerado != 0)
+                {
+
+                    dgvdata.Rows.Add(new object[] {"",idgenerado,txtdocumento.Text,txtTipoDocumento.Text,txtRazonSocial.Text,txttelefono.Text,
+                            ((OpcionCombo)cboestado.SelectedItem).Valor.ToString(),
+                            ((OpcionCombo)cboestado.SelectedItem).Texto.ToString()
+                        });
+
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+
+            }
+            else
+            {
+                bool resultado = new CN_Proveedor().Editar(obj, out mensaje);
+
+                if (resultado)
+                {
+                    DataGridViewRow row = dgvdata.Rows[Convert.ToInt32(txtindice.Text)];
+                    row.Cells["Id"].Value = txtid.Text;
+                    row.Cells["Documento"].Value = txtdocumento.Text;
+                    row.Cells["TipoDocumento"].Value = txtTipoDocumento.Text;
+                    row.Cells["RazonSocial"].Value = txtRazonSocial.Text;
+                    row.Cells["Telefono"].Value = txttelefono.Text;
+                    row.Cells["EstadoValor"].Value = ((OpcionCombo)cboestado.SelectedItem).Valor.ToString();
+                    row.Cells["Estado"].Value = ((OpcionCombo)cboestado.SelectedItem).Texto.ToString();
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show(mensaje);
+                }
+            }
+        }
+
+        private void btneliminar_Click_1(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(txtid.Text) != 0)
+            {
+                if (MessageBox.Show("¿Desea eliminar el proveedor", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    string mensaje = string.Empty;
+                    Proveedor obj = new Proveedor()
+                    {
+                        IdProveedor = Convert.ToInt32(txtid.Text)
+                    };
+
+                    bool respuesta = new CN_Proveedor().Eliminar(obj, out mensaje);
+
+                    if (respuesta)
+                    {
+                        dgvdata.Rows.RemoveAt(Convert.ToInt32(txtindice.Text));
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+
+
+                }
+            }
+        }
+
+        private void cbobusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

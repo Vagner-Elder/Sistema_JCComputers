@@ -23,7 +23,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdProveedor,Documento,RazonSocial,Correo,Telefono,Estado from PROVEEDOR");
+                    query.AppendLine("select IdProveedor,Documento,TipoDocumento,RazonSocial,Telefono,Estado from PROVEEDOR");
 
                     MySqlCommand cmd = new MySqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -40,8 +40,8 @@ namespace CapaDatos
                             {
                                 IdProveedor = Convert.ToInt32(dr["IdProveedor"]),
                                 Documento = dr["Documento"].ToString(),
+                                TipoDocumento = dr["TipoDocumento"].ToString(),
                                 RazonSocial = dr["RazonSocial"].ToString(),
-                                Correo = dr["Correo"].ToString(),
                                 Telefono = dr["Telefono"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"])
                             });
@@ -74,22 +74,22 @@ namespace CapaDatos
             {
                 using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
                 {
-                    MySqlCommand cmd = new MySqlCommand("sp_RegistrarProveedor", oconexion);
-                    cmd.Parameters.AddWithValue("Documento", obj.Documento);
-                    cmd.Parameters.AddWithValue("RazonSocial", obj.RazonSocial);
-                    cmd.Parameters.AddWithValue("Correo", obj.Correo);
-                    cmd.Parameters.AddWithValue("Telefono", obj.Telefono);
-                    cmd.Parameters.AddWithValue("Estado", obj.Estado);
-                    cmd.Parameters.Add("Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    MySqlCommand cmd = new MySqlCommand("InsertarProveedores", oconexion);
+                    cmd.Parameters.AddWithValue("p_Documento", obj.Documento);
+                    cmd.Parameters.AddWithValue("p_TipoDocumento", obj.TipoDocumento);
+                    cmd.Parameters.AddWithValue("p_RazonSocial", obj.RazonSocial);
+                    cmd.Parameters.AddWithValue("p_Telefono", obj.Telefono);
+                    cmd.Parameters.AddWithValue("p_Estado", obj.Estado);
+                    cmd.Parameters.Add("p_Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("p_Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
 
                     cmd.ExecuteNonQuery();
 
-                    idProveedorgenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    idProveedorgenerado = Convert.ToInt32(cmd.Parameters["p_Resultado"].Value);
+                    Mensaje = cmd.Parameters["p_Mensaje"].Value.ToString();
 
                 }
 
@@ -99,9 +99,6 @@ namespace CapaDatos
                 idProveedorgenerado = 0;
                 Mensaje = ex.Message;
             }
-
-
-
             return idProveedorgenerado;
         }
 
@@ -116,24 +113,23 @@ namespace CapaDatos
                 using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
                 {
 
-                    MySqlCommand cmd = new MySqlCommand("sp_ModificarProveedor", oconexion);
-                    cmd.Parameters.AddWithValue("IdProveedor", obj.IdProveedor);
-                    cmd.Parameters.AddWithValue("Documento", obj.Documento);
-                    cmd.Parameters.AddWithValue("RazonSocial", obj.RazonSocial);
-                    cmd.Parameters.AddWithValue("Correo", obj.Correo);
-                    cmd.Parameters.AddWithValue("Telefono", obj.Telefono);
-                    cmd.Parameters.AddWithValue("Estado", obj.Estado);
-                    cmd.Parameters.Add("Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    MySqlCommand cmd = new MySqlCommand("EditarProveedor", oconexion);
+                    cmd.Parameters.AddWithValue("p_IdProveedor", obj.IdProveedor);
+                    cmd.Parameters.AddWithValue("p_NuevoDocumento", obj.Documento);
+                    cmd.Parameters.AddWithValue("p_NuevoTipoDocumento", obj.TipoDocumento);
+                    cmd.Parameters.AddWithValue("p_NuevaRazonSocial", obj.RazonSocial);
+                    cmd.Parameters.AddWithValue("p_NuevoTelefono", obj.Telefono);
+                    cmd.Parameters.AddWithValue("p_NuevoEstado", obj.Estado);
+                    cmd.Parameters.Add("p_Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("p_Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
 
                     cmd.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
-
+                    respuesta = Convert.ToBoolean(cmd.Parameters["p_Resultado"].Value);
+                    Mensaje = cmd.Parameters["p_Mensaje"].Value.ToString();
                 }
 
             }
@@ -142,9 +138,6 @@ namespace CapaDatos
                 respuesta = false;
                 Mensaje = ex.Message;
             }
-
-
-
             return respuesta;
         }
 
@@ -154,26 +147,24 @@ namespace CapaDatos
             bool respuesta = false;
             Mensaje = string.Empty;
 
-
             try
             {
 
                 using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
                 {
 
-
-                    MySqlCommand cmd = new MySqlCommand("sp_EliminarProveedor", oconexion);
-                    cmd.Parameters.AddWithValue("IdProveedor", obj.IdProveedor);
-                    cmd.Parameters.Add("Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    MySqlCommand cmd = new MySqlCommand("EliminarProveedor", oconexion);
+                    cmd.Parameters.AddWithValue("p_IdProveedor", obj.IdProveedor);
+                    cmd.Parameters.Add("p_Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("p_Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
 
                     cmd.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    respuesta = Convert.ToBoolean(cmd.Parameters["p_Resultado"].Value);
+                    Mensaje = cmd.Parameters["p_Mensaje"].Value.ToString();
 
                 }
 
@@ -183,7 +174,6 @@ namespace CapaDatos
                 respuesta = false;
                 Mensaje = ex.Message;
             }
-
             return respuesta;
         }
 
