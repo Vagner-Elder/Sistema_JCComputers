@@ -28,12 +28,12 @@ namespace CapaNegocio
                 Mensaje += "Es necesario el documento del Cliente\n";
             }
 
-            if (obj.NombreCompleto == "")
+            if (obj.Nombres == "")
             {
                 Mensaje += "Es necesario el nombre completo del Cliente\n";
             }
 
-            if (obj.Correo == "")
+            if (obj.Apellidos == "")
             {
                 Mensaje += "Es necesario el correo del Cliente\n";
             }
@@ -61,12 +61,12 @@ namespace CapaNegocio
                 Mensaje += "Es necesario el documento del Cliente\n";
             }
 
-            if (obj.NombreCompleto == "")
+            if (obj.Nombres == "")
             {
                 Mensaje += "Es necesario el nombre completo del Cliente\n";
             }
 
-            if (obj.Correo == "")
+            if (obj.Apellidos == "")
             {
                 Mensaje += "Es necesario el correo del Cliente\n";
             }

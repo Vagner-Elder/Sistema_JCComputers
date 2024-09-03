@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Windows;
+
 
 namespace CapaDatos
 {
@@ -49,7 +51,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("update producto set stock = stock - @cantidad where idproducto = @idproducto");
+                    query.AppendLine("UPDATE PRODUCTO SET Stock = Stock - @cantidad WHERE IdProducto = @idproducto");
 
                     MySqlCommand cmd = new MySqlCommand(query.ToString(), oconexion);
                     cmd.Parameters.AddWithValue("@cantidad", cantidad);
@@ -57,10 +59,12 @@ namespace CapaDatos
                     cmd.CommandType = CommandType.Text;
                     oconexion.Open();
 
-                    respuesta = cmd.ExecuteNonQuery() > 0 ? true : false;
+                    //respuesta = cmd.ExecuteNonQuery() > 0 ? true : false;
+                    respuesta = cmd.ExecuteNonQuery() > 0;
                 }
                 catch (Exception ex)
                 {
+                    // Muestra el mensaje de excepción
                     respuesta = false;
                 }
             }
@@ -78,7 +82,7 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("update producto set stock = stock + @cantidad where idproducto = @idproducto");
+                    query.AppendLine("UPDATE PRODUCTO SET Stock = Stock + @cantidad WHERE IdProducto = @idproducto");
                     MySqlCommand cmd = new MySqlCommand(query.ToString(), oconexion);
                     cmd.Parameters.AddWithValue("@cantidad", cantidad);
                     cmd.Parameters.AddWithValue("@idproducto", idproducto);
@@ -191,44 +195,47 @@ namespace CapaDatos
         }
 
 
-        //public List<Detalle_Venta> ObtenerDetalleVenta(int idVenta) {
-        //    List<Detalle_Venta> oLista = new List<Detalle_Venta>();
+        public List<Detalle_Venta> ObtenerDetalleVenta(int idVenta)
+        {
+            List<Detalle_Venta> oLista = new List<Detalle_Venta>();
 
-        //    using (MySqlConnection conexion = new MySqlConnection(Conexion.cadena)) {
-        //        try
-        //        {
-        //            conexion.Open();
-        //            StringBuilder query = new StringBuilder();
-        //            query.AppendLine("select p.Nombre,dv.PrecioVenta,dv.Cantidad,dv.SubTotal from DETALLE_VENTA dv");
-        //            query.AppendLine("inner join PRODUCTO p on p.IdProducto = dv.IdProducto");
-        //            query.AppendLine(" where dv.IdVenta = @idventa");
+            //using (MySqlConnection conexion = new MySqlConnection(Conexion.cadena))
+            //{
+            //    try
+            //    {
+            //        conexion.Open();
+            //        StringBuilder query = new StringBuilder();
+            //        query.AppendLine("select p.Nombre,dv.PrecioVenta,dv.Cantidad,dv.SubTotal from DETALLE_VENTA dv");
+            //        query.AppendLine("inner join PRODUCTO p on p.IdProducto = dv.IdProducto");
+            //        query.AppendLine(" where dv.IdVenta = @idventa");
 
-        //            MySqlCommand cmd = new MySqlCommand(query.ToString(), conexion);
-        //            cmd.Parameters.AddWithValue("@idventa", idVenta);
-        //            cmd.CommandType = System.Data.CommandType.Text;
+            //        MySqlCommand cmd = new MySqlCommand(query.ToString(), conexion);
+            //        cmd.Parameters.AddWithValue("@idventa", idVenta);
+            //        cmd.CommandType = System.Data.CommandType.Text;
 
 
-        //            using (MySqlDataReader dr = cmd.ExecuteReader())
-        //            {
-        //                while (dr.Read())
-        //                {
-        //                    oLista.Add(new Detalle_Venta()
-        //                    {
-        //                        oProducto = new Producto() { Nombre = dr["Nombre"].ToString() },
-        //                        PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"].ToString()),
-        //                        Cantidad = Convert.ToInt32(dr["Cantidad"].ToString()),
-        //                        SubTotal = Convert.ToDecimal(dr["SubTotal"].ToString()),
-        //                    });
-        //                }
-        //            }
+            //        using (MySqlDataReader dr = cmd.ExecuteReader())
+            //        {
+            //            while (dr.Read())
+            //            {
+            //                oLista.Add(new Detalle_Venta()
+            //                {
+            //                    oProducto = new Producto() { Nombre = dr["Nombre"].ToString() },
+            //                    PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"].ToString()),
+            //                    Cantidad = Convert.ToInt32(dr["Cantidad"].ToString()),
+            //                    SubTotal = Convert.ToDecimal(dr["SubTotal"].ToString()),
+            //                });
+            //            }
+            //        }
 
-        //        }
-        //        catch {
-        //            oLista = new List<Detalle_Venta>();
-        //        }
-        //    }
-        //    return oLista;
-        //}
+            //    }
+            //    catch
+            //    {
+            //        oLista = new List<Detalle_Venta>();
+            //    }
+            //}
+            return oLista;
+        }
 
 
 

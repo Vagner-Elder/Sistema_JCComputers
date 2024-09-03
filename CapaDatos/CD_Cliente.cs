@@ -22,9 +22,8 @@ namespace CapaDatos
 
                 try
                 {
-
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdCliente,Documento,NombreCompleto,Correo,Telefono,Estado from CLIENTE");
+                    query.AppendLine("select IdCliente,Documento,Nombres,Apellidos,Telefono from CLIENTE");
                     MySqlCommand cmd = new MySqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
                     oconexion.Open();
@@ -36,17 +35,12 @@ namespace CapaDatos
                             {
                                 IdCliente = Convert.ToInt32(dr["IdCliente"]),
                                 Documento = dr["Documento"].ToString(),
-                                NombreCompleto = dr["NombreCompleto"].ToString(),
-                                Correo = dr["Correo"].ToString(),
-                                Telefono = dr["Telefono"].ToString(),
-                                Estado = Convert.ToBoolean(dr["Estado"])
+                                Nombres = dr["Nombres"].ToString(),
+                                Apellidos = dr["Apellidos"].ToString(),
+                                Telefono = dr["Telefono"].ToString()
                             });
-
                         }
-
                     }
-
-
                 }
                 catch (Exception ex)
                 {
@@ -54,12 +48,8 @@ namespace CapaDatos
                     lista = new List<Cliente>();
                 }
             }
-
             return lista;
-
         }
-
-
 
 
         public int Registrar(Cliente obj, out string Mensaje)
@@ -72,12 +62,11 @@ namespace CapaDatos
                 using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
                 {
 
-                    MySqlCommand cmd = new MySqlCommand("sp_RegistrarCliente", oconexion);
+                    MySqlCommand cmd = new MySqlCommand("InsertarCliente", oconexion);
                     cmd.Parameters.AddWithValue("p_Documento", obj.Documento);
-                    cmd.Parameters.AddWithValue("p_NombreCompleto", obj.NombreCompleto);
-                    cmd.Parameters.AddWithValue("p_Correo", obj.Correo);
+                    cmd.Parameters.AddWithValue("p_Nombres", obj.Nombres);
+                    cmd.Parameters.AddWithValue("p_Apellidos", obj.Apellidos);
                     cmd.Parameters.AddWithValue("p_Telefono", obj.Telefono);
-                    cmd.Parameters.AddWithValue("p_Estado", obj.Estado);
                     cmd.Parameters.Add("p_Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("p_Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -88,18 +77,13 @@ namespace CapaDatos
 
                     idClientegenerado = Convert.ToInt32(cmd.Parameters["p_Resultado"].Value);
                     Mensaje = cmd.Parameters["p_Mensaje"].Value.ToString();
-
                 }
-
             }
             catch (Exception ex)
             {
                 idClientegenerado = 0;
                 Mensaje = ex.Message;
             }
-
-
-
             return idClientegenerado;
         }
 
@@ -117,13 +101,12 @@ namespace CapaDatos
                 using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
                 {
 
-                    MySqlCommand cmd = new MySqlCommand("sp_ModificarCliente", oconexion);
+                    MySqlCommand cmd = new MySqlCommand("EditarCliente", oconexion);
                     cmd.Parameters.AddWithValue("p_IdCliente", obj.IdCliente);
                     cmd.Parameters.AddWithValue("p_Documento", obj.Documento);
-                    cmd.Parameters.AddWithValue("p_NombreCompleto", obj.NombreCompleto);
-                    cmd.Parameters.AddWithValue("p_Correo", obj.Correo);
+                    cmd.Parameters.AddWithValue("p_Nombres", obj.Nombres);
+                    cmd.Parameters.AddWithValue("p_Apellidos", obj.Apellidos);
                     cmd.Parameters.AddWithValue("p_Telefono", obj.Telefono);
-                    cmd.Parameters.AddWithValue("p_Estado", obj.Estado);
                     cmd.Parameters.Add("p_Resultado", MySqlDbType.Int32).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("p_Mensaje", MySqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -134,18 +117,13 @@ namespace CapaDatos
 
                     respuesta = Convert.ToBoolean(cmd.Parameters["p_Resultado"].Value);
                     Mensaje = cmd.Parameters["p_Mensaje"].Value.ToString();
-
                 }
-
             }
             catch (Exception ex)
             {
                 respuesta = false;
                 Mensaje = ex.Message;
             }
-
-
-
             return respuesta;
         }
 
@@ -159,7 +137,7 @@ namespace CapaDatos
                 using (MySqlConnection oconexion = new MySqlConnection(Conexion.cadena))
                 {
                     
-                    MySqlCommand cmd = new MySqlCommand("delete from cliente where IdCliente = @id", oconexion);
+                    MySqlCommand cmd = new MySqlCommand("delete from CLIENTE where IdCliente = @id", oconexion);
                     cmd.Parameters.AddWithValue("@id", obj.IdCliente);
                     cmd.CommandType = CommandType.Text;
                     oconexion.Open();
@@ -172,10 +150,7 @@ namespace CapaDatos
                 respuesta = false;
                 Mensaje = ex.Message;
             }
-
             return respuesta;
         }
-
-
     }
 }

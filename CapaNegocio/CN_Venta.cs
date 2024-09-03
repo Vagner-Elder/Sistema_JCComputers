@@ -13,7 +13,8 @@ namespace CapaNegocio
     {
         private CD_Venta objcd_venta = new CD_Venta();
 
-        public bool RestarStock(int idproducto, int cantidad) {
+        public bool RestarStock(int idproducto, int cantidad) 
+        {
             return objcd_venta.RestarStock(idproducto, cantidad);
         }
 
@@ -34,10 +35,11 @@ namespace CapaNegocio
         public Venta ObtenerVenta(string numero) {
             Venta oVenta = objcd_venta.ObtenerVenta(numero);
 
-            //if (oVenta.IdVenta != 0) {
-            //    List<Detalle_Venta> oDetalleVenta = objcd_venta.ObtenerDetalleVenta(oVenta.IdVenta);
-            //    oVenta.oDetalle_Venta = oDetalleVenta;
-            //}
+            if (oVenta.IdVenta != 0)
+            {
+                List<Detalle_Venta> oDetalleVenta = objcd_venta.ObtenerDetalleVenta(oVenta.IdVenta);
+                oVenta.oDetalle_Venta = oDetalleVenta;
+            }
 
             return oVenta;
         }

@@ -43,8 +43,11 @@ namespace CapaPresentacion.Modales
                 dgvdata.Rows.Add(new object[] {
                     item.IdProducto,
                     item.Codigo,
-                    //item.Nombre,
-                    //item.oCategoria.Descripcion,
+                    item.TipoProducto.Nombre,
+                    item.Marca.Nombre,
+                    item.Modelo.Nombre,
+                    item.CapacidadTamano.Nombre,
+                    item.TipoComponente.Nombre,
                     item.Stock,
                     item.PrecioCompra,
                     item.PrecioVenta
@@ -56,13 +59,18 @@ namespace CapaPresentacion.Modales
         {
             int iRow = e.RowIndex;
             int iColum = e.ColumnIndex;
-            if (iRow >= 0 && iColum > 0)
+            if (iRow >= 0 && iColum >= 0)
             {
                 _Producto = new Producto()
                 {
                     IdProducto = Convert.ToInt32(dgvdata.Rows[iRow].Cells["Id"].Value.ToString()),
                     Codigo = dgvdata.Rows[iRow].Cells["Codigo"].Value.ToString(),
-                    //Nombre = dgvdata.Rows[iRow].Cells["Nombre"].Value.ToString(),
+
+                    TipoProducto = new Tipo_Producto()
+                    {
+                        Nombre = dgvdata.Rows[iRow].Cells["Producto"].Value.ToString()
+                    },
+
                     Stock = Convert.ToInt32(dgvdata.Rows[iRow].Cells["Stock"].Value.ToString()),
                     PrecioCompra = Convert.ToDecimal(dgvdata.Rows[iRow].Cells["PrecioCompra"].Value.ToString()),
                     PrecioVenta = Convert.ToDecimal(dgvdata.Rows[iRow].Cells["PrecioVenta"].Value.ToString()),

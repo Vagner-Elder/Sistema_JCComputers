@@ -10,10 +10,10 @@ namespace CapaEntidad
     {
         public int IdCliente { get; set; }
         public string Documento { get; set; }
-        public string NombreCompleto { get; set; }
-        public string Correo { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
         public string Telefono { get; set; }
-        public bool Estado { get; set; }
+        //public bool Estado { get; set; }
         public string FechaRegistro { get; set; }
     }
 }

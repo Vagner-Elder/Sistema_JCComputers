@@ -35,11 +35,14 @@ namespace CapaPresentacion.Modales
             cbobusqueda.SelectedIndex = 0;
 
             List<Cliente> lista = new CN_Cliente().Listar();
-
             foreach (Cliente item in lista)
             {
-                if (item.Estado)
-                    dgvdata.Rows.Add(new object[] { item.Documento, item.NombreCompleto });
+                dgvdata.Rows.Add(new object[]
+                {
+                    item.Documento,
+                    item.Nombres,
+                    item.Apellidos
+                });
             }
 
         }
@@ -53,7 +56,8 @@ namespace CapaPresentacion.Modales
                 _Cliente = new Cliente()
                 {
                     Documento = dgvdata.Rows[iRow].Cells["Documento"].Value.ToString(),
-                    NombreCompleto = dgvdata.Rows[iRow].Cells["NombreCompleto"].Value.ToString()
+                    Nombres = dgvdata.Rows[iRow].Cells["Nombres"].Value.ToString(),
+                    Apellidos = dgvdata.Rows[iRow].Cells["Apellidos"].Value.ToString()
                 };
                 this.DialogResult = DialogResult.OK;
                 this.Close();

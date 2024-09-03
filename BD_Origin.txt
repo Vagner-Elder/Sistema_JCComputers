@@ -461,9 +461,6 @@ BEGIN
     END IF;
 END //
 
-
-
-
 /********************************************************************************************************/
 CREATE TABLE CLIENTE (
     IdCliente INT PRIMARY KEY AUTO_INCREMENT,
@@ -473,6 +470,74 @@ CREATE TABLE CLIENTE (
     Telefono VARCHAR(50) NULL,
     FechaRegistro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+select IdCliente,Documento,Nombres,Apellidos,Telefono from CLIENTE
+INSERT INTO CLIENTE (Documento, Nombres, Apellidos, Telefono)
+VALUES 
+('12345678', 'Juan', 'Pérez', '555-1234'),
+('87654321', 'María', 'González', '555-5678'),
+('11223344', 'Carlos', 'Ramírez', '555-8765'),
+('44332211', 'Ana', 'López', '555-4321'),
+('99887766', 'Luis', 'Martínez', '555-7890');
+
+/* Procedimiento para insertar clientes */
+DELIMITER //
+CREATE PROCEDURE InsertarCliente(
+    IN p_Documento VARCHAR(50),
+    IN p_Nombres VARCHAR(50),
+    IN p_Apellidos VARCHAR(100),
+    IN p_Telefono VARCHAR(50),
+    OUT p_Resultado INT,
+    OUT p_Mensaje VARCHAR(500)
+)
+BEGIN
+    DECLARE resultado_temp INT;
+    SET p_Resultado = 0;
+    -- Verifica si ya existe un cliente con el mismo Documento
+    SELECT COUNT(*) INTO resultado_temp FROM CLIENTE WHERE Documento = p_Documento;
+    IF resultado_temp = 0 THEN
+        -- Inserta un nuevo registro en la tabla CLIENTE
+        INSERT INTO CLIENTE(Documento, Nombres, Apellidos, Telefono)
+        VALUES(p_Documento, p_Nombres, p_Apellidos, p_Telefono);
+        SET p_Resultado = LAST_INSERT_ID();
+        SET p_Mensaje = 'Cliente insertado correctamente';
+    ELSE
+        SET p_Mensaje = 'El cliente con el mismo Documento ya existe';
+    END IF;
+END //
+
+/* Procedimiento para editar clientes */
+DELIMITER //
+CREATE PROCEDURE EditarCliente(
+    IN p_IdCliente INT,
+    IN p_Documento VARCHAR(50),
+    IN p_Nombres VARCHAR(50),
+    IN p_Apellidos VARCHAR(100),
+    IN p_Telefono VARCHAR(50),
+    OUT p_Resultado INT,
+    OUT p_Mensaje VARCHAR(500)
+)
+BEGIN
+    DECLARE cliente_existente INT;
+    SET p_Resultado = 0;
+    -- Verifica si el cliente con el IdCliente especificado existe
+    SELECT COUNT(*) INTO cliente_existente FROM CLIENTE WHERE IdCliente = p_IdCliente;
+    IF cliente_existente = 1 THEN
+        -- Actualiza los datos del cliente en la tabla CLIENTE
+        UPDATE CLIENTE
+        SET Documento = p_Documento, 
+            Nombres = p_Nombres, 
+            Apellidos = p_Apellidos, 
+            Telefono = p_Telefono
+        WHERE IdCliente = p_IdCliente;
+        SET p_Resultado = p_IdCliente;
+        SET p_Mensaje = 'Cliente actualizado correctamente';
+    ELSE
+        SET p_Mensaje = 'El cliente con el IdCliente especificado no existe';
+    END IF;
+END //
+
+
 
 CREATE TABLE USUARIO (
     IdUsuario INT PRIMARY KEY AUTO_INCREMENT,
