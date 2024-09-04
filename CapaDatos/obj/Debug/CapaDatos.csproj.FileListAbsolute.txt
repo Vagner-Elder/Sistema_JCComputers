@@ -311,3 +311,5 @@ C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaDatos\obj\De
 C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
 C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\MSI ALPHA 15\Desktop\Nueva carpeta\Sistema_JCComputers\CapaDatos\obj\Debug\CapaDatos.pdb
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Newtonsoft.Json.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaDatos\bin\Debug\Newtonsoft.Json.xml

@@ -171,3 +171,5 @@ E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\b
 E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\System.Configuration.ConfigurationManager.xml
 E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdExporProductos.resources
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\Newtonsoft.Json.dll
+E:\PROYECTO TRABAJOS\Sistema de Ventas JCComputers\Sistema_JC\CapaPresentacion\bin\Debug\Newtonsoft.Json.xml
