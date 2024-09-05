@@ -59,46 +59,48 @@ namespace CapaPresentacion
 
         private void btnbuscarproducto_Click(object sender, EventArgs e)
         {
-            //using (var modal = new mdProducto())
-            //{
-            //    var result = modal.ShowDialog();
+            using (var modal = new mdProducto())
+            {
+                var result = modal.ShowDialog();
 
-            //    if (result == DialogResult.OK)
-            //    {
-            //        txtidproducto.Text = modal._Producto.IdProducto.ToString();
-            //        txtcodproducto.Text = modal._Producto.Codigo;
-            //        txtproducto.Text = modal._Producto.Nombre;
-            //        txtpreciocompra.Select();
-            //    }
-            //    else
-            //    {
-            //        txtcodproducto.Select();
-            //    }
+                if (result == DialogResult.OK)
+                {
+                    txtidproducto.Text = modal._Producto.IdProducto.ToString();
+                    txtcodproducto.Text = modal._Producto.Codigo;
+                    txtproducto.Text = modal._Producto.TipoProducto.Nombre;
+                    txtpreciocompra.Select();
+                }
+                else
+                {
+                    txtcodproducto.Select();
+                }
 
-            //}
+            }
         }
 
         private void txtcodproducto_KeyDown(object sender, KeyEventArgs e)
         {
-            //if (e.KeyData == Keys.Enter) {
+            if (e.KeyData == Keys.Enter)
+            {
 
-            //    Producto oProducto = new CN__Producto().Listar().Where(p => p.Codigo == txtcodproducto.Text && p.Estado == true).FirstOrDefault();
+                Producto oProducto = new CN__Producto().Listar().Where(p => p.Codigo == txtcodproducto.Text && p.Estado == true).FirstOrDefault();
 
-            //    if (oProducto != null)
-            //    {
-            //        txtcodproducto.BackColor = Color.Honeydew;
-            //        txtidproducto.Text = oProducto.IdProducto.ToString();
-            //        txtproducto.Text = oProducto.Nombre;
-            //        txtpreciocompra.Select();
-            //    }
-            //    else {
-            //        txtcodproducto.BackColor = Color.MistyRose;
-            //        txtidproducto.Text = "0";
-            //        txtproducto.Text = "";
-            //    }
+                if (oProducto != null)
+                {
+                    txtcodproducto.BackColor = Color.Honeydew;
+                    txtidproducto.Text = oProducto.IdProducto.ToString();
+                    txtproducto.Text = oProducto.TipoProducto.Nombre;
+                    txtpreciocompra.Select();
+                }
+                else
+                {
+                    txtcodproducto.BackColor = Color.MistyRose;
+                    txtidproducto.Text = "0";
+                    txtproducto.Text = "";
+                }
 
 
-            //}
+            }
         }
 
         private void btnagregarproducto_Click(object sender, EventArgs e)
@@ -261,6 +263,7 @@ namespace CapaPresentacion
                 }
             }
         }
+
 
         private void btnregistrar_Click(object sender, EventArgs e)
         {

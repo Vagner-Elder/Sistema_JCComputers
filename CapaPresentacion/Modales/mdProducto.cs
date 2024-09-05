@@ -71,6 +71,26 @@ namespace CapaPresentacion.Modales
                         Nombre = dgvdata.Rows[iRow].Cells["Producto"].Value.ToString()
                     },
 
+                    Marca = new Marca()
+                    {
+                        Nombre = dgvdata.Rows[iRow].Cells["Marca"].Value.ToString()
+                    },
+
+                    Modelo = new Modelo()
+                    {
+                        Nombre = dgvdata.Rows[iRow].Cells["Modelo"].Value.ToString()
+                    },
+
+                    CapacidadTamano = new Capacidad_Tamanio()
+                    {
+                        Nombre = dgvdata.Rows[iRow].Cells["Capacidad"].Value.ToString()
+                    },
+
+                    TipoComponente = new Tipo_Componente()
+                    {
+                        Nombre = dgvdata.Rows[iRow].Cells["TipoComponente"].Value.ToString()
+                    },
+
                     Stock = Convert.ToInt32(dgvdata.Rows[iRow].Cells["Stock"].Value.ToString()),
                     PrecioCompra = Convert.ToDecimal(dgvdata.Rows[iRow].Cells["PrecioCompra"].Value.ToString()),
                     PrecioVenta = Convert.ToDecimal(dgvdata.Rows[iRow].Cells["PrecioVenta"].Value.ToString()),

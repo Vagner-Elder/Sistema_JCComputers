@@ -29,11 +29,12 @@ namespace CapaNegocio
 
             Compra oCompra = objcd_compra.ObtenerCompra(numero);
 
-            //if (oCompra.IdCompra != 0) {
-            //    List<Detalle_Compra> oDetalleCompra = objcd_compra.ObtenerDetalleCompra(oCompra.IdCompra);
+            if (oCompra.IdCompra != 0)
+            {
+                List<Detalle_Compra> oDetalleCompra = objcd_compra.ObtenerDetalleCompra(oCompra.IdCompra);
 
-            //    oCompra.oDetalleCompra = oDetalleCompra;
-            //}
+                oCompra.oDetalleCompra = oDetalleCompra;
+            }
             return oCompra;
         }
 

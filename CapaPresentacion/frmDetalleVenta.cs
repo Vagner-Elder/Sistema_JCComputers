@@ -40,8 +40,10 @@ namespace CapaPresentacion
                 txtfecha.Text = oVenta.FechaRegistro;
                 txttipodocumento.Text = oVenta.TipoDocumento;
                 txtusuario.Text = oVenta.oUsuario.Nombres;
+                txtApellidoUser.Text = oVenta.oUsuario.Apellidos;
                 txtdoccliente.Text = oVenta.DocumentoCliente;
-                txtnombrecliente.Text = oVenta.NombreCliente;
+                txtnombrecliente.Text = oVenta.oCliente.Nombres;
+                txtApellidoCliente.Text = oVenta.oCliente.Apellidos;
 
                 dgvdata.Rows.Clear();
                 foreach (Detalle_Venta dv in oVenta.oDetalle_Venta)
@@ -154,6 +156,11 @@ namespace CapaPresentacion
             //        MessageBox.Show("Documento Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //    }
             //}
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

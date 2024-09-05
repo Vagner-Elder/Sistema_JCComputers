@@ -25,26 +25,36 @@ namespace CapaPresentacion
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-            //Compra oCompra = new CN_Compra().ObtenerCompra(txtbusqueda.Text);
+            Compra oCompra = new CN_Compra().ObtenerCompra(txtbusqueda.Text);
 
-            //if (oCompra.IdCompra != 0) {
+            if (oCompra.IdCompra != 0)
+            {
 
-            //    txtnumerodocumento.Text = oCompra.NumeroDocumento;
+                txtnumerodocumento.Text = oCompra.NumeroDocumento;
 
-            //    txtfecha.Text = oCompra.FechaRegistro;
-            //    txttipodocumento.Text = oCompra.TipoDocumento;
-            //    txtusuario.Text = oCompra.oUsuario.Nombres;
-            //    txtdocproveedor.Text = oCompra.oProveedor.Documento;
-            //    txtnombreproveedor.Text = oCompra.oProveedor.RazonSocial;
+                txtfecha.Text = oCompra.FechaRegistro;
+                txttipodocumento.Text = oCompra.TipoDocumento;
+                txtusuario.Text = oCompra.oUsuario.Nombres;
+                txtdocproveedor.Text = oCompra.oProveedor.Documento;
+                txtnombreproveedor.Text = oCompra.oProveedor.RazonSocial;
 
-            //    dgvdata.Rows.Clear();
-            //    foreach (Detalle_Compra dc in oCompra.oDetalleCompra) {
-            //        dgvdata.Rows.Add(new object[] { dc.oProducto.Nombre, dc.PrecioCompra, dc.Cantidad, dc.MontoTotal });
-            //    }
+                dgvdata.Rows.Clear();
+                foreach (Detalle_Compra dc in oCompra.oDetalleCompra)
+                {
+                    string tipoProductoNombre = dc.oProducto.TipoProducto != null ? dc.oProducto.TipoProducto.Nombre : "Desconocido";
 
-            //    txtmontototal.Text = oCompra.MontoTotal.ToString("0.00");
+                    dgvdata.Rows.Add(new object[] 
+                    { 
+                        tipoProductoNombre, 
+                        dc.PrecioCompra, 
+                        dc.Cantidad, 
+                        dc.MontoTotal 
+                    });
+                }
 
-            //}
+                txtmontototal.Text = oCompra.MontoTotal.ToString("0.00");
+
+            }
 
         }
 

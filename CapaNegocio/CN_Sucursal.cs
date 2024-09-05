@@ -63,5 +63,11 @@ namespace CapaNegocio
         {
             return objcd_Sucursal.Eliminar(obj, out Mensaje);
         }
+
+        public List<Sucursal> ListarActivos()
+        {
+            return objcd_Sucursal.Listar().Where(s => s.Estado).ToList();
+        }
+
     }
 }

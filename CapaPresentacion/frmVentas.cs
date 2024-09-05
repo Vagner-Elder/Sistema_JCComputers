@@ -38,6 +38,25 @@ namespace CapaPresentacion
             txtpagocon.Text = "";
             txtcambio.Text = "";
             txttotalpagar.Text = "0";
+
+            CargarSucursales();
+        }
+
+        private void CargarSucursales()
+        {
+            CN_Sucursal cnSucursal = new CN_Sucursal();
+            List<Sucursal> sucursales = cnSucursal.ListarActivos(); // Obtén la lista de sucursales activas
+
+            cbSucursal.Items.Clear();
+
+            foreach (var sucursal in sucursales)
+            {
+                cbSucursal.Items.Add(new OpcionCombo() { Valor = sucursal.IdSucursal, Texto = sucursal.Nombre });
+            }
+
+            cbSucursal.DisplayMember = "Texto";
+            cbSucursal.ValueMember = "Valor";
+            cbSucursal.SelectedIndex = 0; // Opcional: Selecciona el primer ítem
         }
 
         private void btnbuscarcliente_Click(object sender, EventArgs e)
@@ -72,6 +91,10 @@ namespace CapaPresentacion
                     txtidproducto.Text = modal._Producto.IdProducto.ToString();
                     txtcodproducto.Text = modal._Producto.Codigo;
                     txtproducto.Text = modal._Producto.TipoProducto.Nombre;
+                    txtMarca.Text = modal._Producto.Marca.Nombre;
+                    txtModelo.Text = modal._Producto.Modelo.Nombre;
+                    txtCapTam.Text = modal._Producto.CapacidadTamano.Nombre;
+                    txtTipComponente.Text = modal._Producto.TipoComponente.Nombre;
                     txtprecio.Text = modal._Producto.PrecioVenta.ToString("0.00");
                     txtstock.Text = modal._Producto.Stock.ToString();
                     txtcantidad.Select();
@@ -104,6 +127,10 @@ namespace CapaPresentacion
             txtprecio.Text = "";
             txtstock.Text = "";
             txtcantidad.Value = 1;
+            txtMarca.Text = "";
+            txtModelo.Text = "";
+            txtCapTam.Text = "";
+            txtTipComponente.Text = "";
         }
 
         private void btnagregarproducto_Click_1(object sender, EventArgs e)
@@ -153,6 +180,10 @@ namespace CapaPresentacion
                     dgvdata.Rows.Add(new object[] {
                         txtidproducto.Text,
                         txtproducto.Text,
+                        txtMarca.Text,
+                        txtModelo.Text,
+                        txtCapTam.Text,
+                        txtTipComponente.Text,
                         precio.ToString("0.00"),
                         txtcantidad.Value.ToString(),
                         (txtcantidad.Value * precio).ToString("0.00")
@@ -170,7 +201,7 @@ namespace CapaPresentacion
             if (e.RowIndex < 0)
                 return;
 
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 9)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
@@ -217,6 +248,10 @@ namespace CapaPresentacion
                     txtcodproducto.BackColor = Color.Honeydew;
                     txtidproducto.Text = oProducto.IdProducto.ToString();
                     txtproducto.Text = oProducto.TipoProducto.Nombre;
+                    txtMarca.Text = oProducto.Marca.Nombre;
+                    txtModelo.Text = oProducto.Modelo.Nombre;
+                    txtCapTam.Text = oProducto.CapacidadTamano.Nombre;
+                    txtTipComponente.Text = oProducto.TipoComponente.Nombre;
                     txtprecio.Text = oProducto.PrecioVenta.ToString("0.00");
                     txtstock.Text = oProducto.Stock.ToString();
                     txtcantidad.Select();
@@ -369,13 +404,16 @@ namespace CapaPresentacion
             Venta oVenta = new Venta()
             {
                 oUsuario = new Usuario() { IdUsuario = _Usuario.IdUsuario },
+                oSucursal = new Sucursal() { IdSucursal = Convert.ToInt32(((OpcionCombo)cbSucursal.SelectedItem).Valor)},
                 TipoDocumento = ((OpcionCombo)cbotipodocumento.SelectedItem).Texto,
                 NumeroDocumento = numeroDocumento,
                 DocumentoCliente = txtdocumentocliente.Text,
-                NombreCliente = txtnombrecliente.Text,
+
                 MontoPago = Convert.ToDecimal(txtpagocon.Text),
                 MontoCambio = Convert.ToDecimal(txtcambio.Text),
-                MontoTotal = Convert.ToDecimal(txttotalpagar.Text)
+                MontoTotal = Convert.ToDecimal(txttotalpagar.Text),
+
+                oCliente = new Cliente { Documento = txtdocumentocliente.Text, Nombres = txtnombrecliente.Text, Apellidos = txtApellidos.Text}
             };
 
             string mensaje = string.Empty;

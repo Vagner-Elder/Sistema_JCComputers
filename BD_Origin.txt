@@ -833,7 +833,7 @@ select * from Modelo
 select * from Capacidad_Tamanio
 select * from Tipo_Componente
 
-/*TABLAS UNIFICADAS*/
+/********************************TABLAS UNIFICADAS***************************************/
 
 CREATE TABLE COMPRA (
     IdCompra INT PRIMARY KEY AUTO_INCREMENT,
@@ -849,6 +849,67 @@ CREATE TABLE COMPRA (
     FOREIGN KEY (IdSucursal) REFERENCES SUCURSAL(IdSucursal)
 );
 
+/*Procedimiento para registrar compra */
+DELIMITER //
+CREATE PROCEDURE sp_RegistrarCompra(
+    IN p_IdUsuario INT,
+    IN p_IdProveedor INT,
+    IN p_TipoDocumento VARCHAR(500),
+    IN p_NumeroDocumento VARCHAR(500),
+    IN p_MontoTotal DECIMAL(18,2),
+    IN DetalleCompra JSON,
+    OUT p_Resultado BIT,
+    OUT p_Mensaje VARCHAR(500)
+)
+BEGIN
+    DECLARE v_IdCompra INT;
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        -- Manejo de errores
+        SET p_Resultado = 0;
+        SET p_Mensaje = 'Error al registrar la compra';
+        ROLLBACK;
+    END;
+    START TRANSACTION;
+    -- Insertar en la tabla COMPRA
+    INSERT INTO COMPRA(IdUsuario, IdProveedor, TipoDocumento, NumeroDocumento, MontoTotal)
+    VALUES (p_IdUsuario, p_IdProveedor, p_TipoDocumento, p_NumeroDocumento, p_MontoTotal);
+
+    -- Obtener el último ID de la tabla COMPRA
+    SET v_IdCompra = LAST_INSERT_ID();
+
+    -- Insertar en la tabla DETALLE_COMPRA utilizando los datos del JSON
+    INSERT INTO DETALLE_COMPRA(IdCompra, IdProducto, PrecioCompra, PrecioVenta, Cantidad, MontoTotal)
+    SELECT v_IdCompra, JSON_UNQUOTE(JSON_EXTRACT(dc.Item, '$.IdProducto')), 
+           JSON_UNQUOTE(JSON_EXTRACT(dc.Item, '$.PrecioCompra')), 
+           JSON_UNQUOTE(JSON_EXTRACT(dc.Item, '$.PrecioVenta')), 
+           JSON_UNQUOTE(JSON_EXTRACT(dc.Item, '$.Cantidad')), 
+           JSON_UNQUOTE(JSON_EXTRACT(dc.Item, '$.MontoTotal'))
+    FROM JSON_TABLE(DetalleCompra, '$[*]' COLUMNS (
+        Item JSON PATH '$'
+    )) AS dc;
+    
+    -- Actualizar la tabla PRODUCTO
+    UPDATE PRODUCTO p
+    INNER JOIN JSON_TABLE(DetalleCompra, '$[*]' COLUMNS (
+        IdProducto INT PATH '$.IdProducto',
+        Cantidad INT PATH '$.Cantidad',
+        PrecioCompra DECIMAL(18,2) PATH '$.PrecioCompra',
+        PrecioVenta DECIMAL(18,2) PATH '$.PrecioVenta'
+    )) AS dc ON dc.IdProducto = p.IdProducto
+    SET p.Stock = p.Stock + dc.Cantidad,
+        p.PrecioCompra = dc.PrecioCompra,
+        p.PrecioVenta = dc.PrecioVenta;
+
+    COMMIT;
+
+    SET p_Resultado = 1;
+    SET p_Mensaje = 'Compra registrada exitosamente';
+END //
+
+
+
+
 CREATE TABLE DETALLE_COMPRA (
     IdDetalleCompra INT PRIMARY KEY AUTO_INCREMENT,
     IdCompra INT,
@@ -862,6 +923,23 @@ CREATE TABLE DETALLE_COMPRA (
     FOREIGN KEY (IdProducto) REFERENCES PRODUCTO(IdProducto)
 );
 
+SELECT tp.Nombre AS TipoProductoNombre, dc.PrecioCompra, dc.PrecioVenta, dc.Cantidad, dc.MontoTotal
+FROM DETALLE_COMPRA dc
+INNER JOIN PRODUCTO p ON p.IdProducto = dc.IdProducto
+INNER JOIN Tipo_Producto tp ON p.Id_Tipo_Producto = tp.Id
+WHERE dc.IdCompra = 00003;
+
+
+-- Eliminar la columna NombreCliente
+ALTER TABLE VENTA
+DROP COLUMN NombreCliente;
+-- Agregar la columna IdCliente con clave foránea a CLIENTE
+ALTER TABLE VENTA
+ADD COLUMN IdCliente INT,
+ADD CONSTRAINT FK_VENTA_CLIENTE FOREIGN KEY (IdCliente) REFERENCES CLIENTE(IdCliente);
+
+
+
 CREATE TABLE VENTA (
     IdVenta INT PRIMARY KEY AUTO_INCREMENT,
     IdUsuario INT,
@@ -869,16 +947,95 @@ CREATE TABLE VENTA (
     TipoDocumento VARCHAR(50) NULL,
     NumeroDocumento VARCHAR(50) NULL,
     DocumentoCliente VARCHAR(50) NULL,
-    NombreCliente VARCHAR(100) NULL,
-    MontoPagoEfectivo DECIMAL(10,2),
-    MontoPagoQR DECIMAL(10,2),
-    MontoPagoTransferencia DECIMAL(10,2),
+    IdCliente INT,
+    MontoPago DECIMAL(10,2),
     MontoCambio DECIMAL(10,2),
     MontoTotal DECIMAL(10,2),
     FechaRegistro DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (IdUsuario) REFERENCES USUARIO(IdUsuario),
-    FOREIGN KEY (IdSucursal) REFERENCES SUCURSAL(IdSucursal)
+    FOREIGN KEY (IdSucursal) REFERENCES SUCURSAL(IdSucursal),
+    FOREIGN KEY (IdCliente) REFERENCES CLIENTE(IdCliente)
 );
+
+
+DELIMITER //
+CREATE PROCEDURE usp_RegistrarVenta(
+    IN p_IdUsuario INT,
+    IN p_IdSucursal INT,
+    IN p_TipoDocumento VARCHAR(50),
+    IN p_NumeroDocumento VARCHAR(50),
+    IN p_DocumentoCliente VARCHAR(50),
+    IN p_IdCliente INT,
+    IN p_MontoPago DECIMAL(10,2),
+    IN p_MontoCambio DECIMAL(10,2),
+    IN p_MontoTotal DECIMAL(10,2),
+    IN p_DetalleVenta JSON, -- Se usa JSON para pasar detalles de venta
+    OUT p_Resultado BIT,
+    OUT p_Mensaje VARCHAR(500)
+)
+BEGIN
+    DECLARE idventa INT DEFAULT 0;
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION
+    BEGIN
+        -- En caso de error, deshace la transacción
+        ROLLBACK;
+        SET p_Resultado = 0;
+        SET p_Mensaje = CONCAT('Error: ', ERROR_MESSAGE());
+    END;
+    -- Inicializa las variables de salida
+    SET p_Resultado = 1;
+    SET p_Mensaje = '';
+    -- Inicia la transacción
+    START TRANSACTION;
+    -- Inserta en la tabla VENTA
+    INSERT INTO VENTA(IdUsuario, IdSucursal, TipoDocumento, NumeroDocumento, DocumentoCliente, IdCliente, MontoPago, MontoCambio, MontoTotal)
+    VALUES(p_IdUsuario, p_IdSucursal, p_TipoDocumento, p_NumeroDocumento, p_DocumentoCliente, p_IdCliente, p_MontoPago, p_MontoCambio, p_MontoTotal);
+
+    -- Obtiene el último id insertado
+    SET idventa = LAST_INSERT_ID();
+
+    -- Inserta en la tabla DETALLE_VENTA
+    -- Descompón el JSON y realiza el INSERT
+    INSERT INTO DETALLE_VENTA(IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal)
+    SELECT
+        idventa,
+        JSON_EXTRACT(detail, '$.IdProducto') AS IdProducto,
+        JSON_EXTRACT(detail, '$.PrecioVenta') AS PrecioVenta,
+        JSON_EXTRACT(detail, '$.Cantidad') AS Cantidad,
+        JSON_EXTRACT(detail, '$.SubTotal') AS SubTotal
+    FROM JSON_TABLE(p_DetalleVenta, '$[*]' COLUMNS (detail JSON PATH '$')) AS details;
+
+    -- Si todo es correcto, confirma la transacción
+    COMMIT;
+END //
+
+SELECT 
+    v.IdVenta, 
+    u.Nombres AS NombreUsuario, 
+    u.Apellidos AS ApellidoUsuario,
+    v.DocumentoCliente, 
+    c.Nombres AS NombreCliente, 
+    c.Apellidos AS ApellidoCliente,
+    s.Nombre AS NombreSucursal,
+    v.TipoDocumento, 
+    v.NumeroDocumento,
+    v.MontoPago, 
+    v.MontoCambio, 
+    v.MontoTotal,
+    DATE_FORMAT(v.FechaRegistro, '%d/%m/%Y') AS FechaRegistro
+FROM 
+    VENTA v
+INNER JOIN 
+    USUARIO u ON u.IdUsuario = v.IdUsuario
+INNER JOIN 
+    CLIENTE c ON c.IdCliente = v.IdCliente
+INNER JOIN 
+    SUCURSAL s ON s.IdSucursal = v.IdSucursal
+WHERE 
+    v.NumeroDocumento = 2024;
+
+
+DROP PROCEDURE IF EXISTS usp_RegistrarVenta;
 
 CREATE TABLE DETALLE_VENTA (
     IdDetalleVenta INT PRIMARY KEY AUTO_INCREMENT,
@@ -1025,139 +1182,6 @@ BEGIN
 END //
 
 
-
-
-
-
-
-
-
-
-
-
-
-WITH fk_info as (
-(SELECT (@fk_info:=NULL),
-    (SELECT (0)
-    FROM (SELECT kcu.table_schema,
-        kcu.table_name,
-        kcu.column_name as fk_column,
-        kcu.constraint_name as foreign_key_name,
-        kcu.referenced_table_name as reference_table,
-        kcu.referenced_column_name as reference_column,
-        CONCAT('FOREIGN KEY (', kcu.column_name, ') REFERENCES ',
-            kcu.referenced_table_name, '(', kcu.referenced_column_name, ') ',
-            'ON UPDATE ', rc.update_rule,
-            ' ON DELETE ', rc.delete_rule) AS fk_def
-    FROM
-        information_schema.key_column_usage kcu
-    JOIN
-        information_schema.referential_constraints rc
-        ON kcu.constraint_name = rc.constraint_name
-            AND kcu.table_schema = rc.constraint_schema
-        AND kcu.table_name = rc.table_name
-    WHERE
-        kcu.referenced_table_name IS NOT NULL) as fk
-    WHERE table_schema LIKE IFNULL(NULL, '%')
-        AND table_schema = DATABASE()
-        AND (0x00) IN (@fk_info:=CONCAT_WS(',', @fk_info, CONCAT('{"schema":"',table_schema,
-                                    '","table":"',table_name,
-                                    '","column":"', IFNULL(fk_column, ''),
-                                                '","foreign_key_name":"', IFNULL(foreign_key_name, ''),
-                                                '","reference_table":"', IFNULL(reference_table, ''),
-                                                '","reference_column":"', IFNULL(reference_column, ''),
-                                                '","fk_def":"', IFNULL(fk_def, ''),
-                                    '"}')))))
-), pk_info AS (
-    (SELECT (@pk_info:=NULL),
-              (SELECT (0)
-               FROM (SELECT TABLE_SCHEMA,
-                            TABLE_NAME AS pk_table,
-                            COLUMN_NAME AS pk_column,
-                            CONCAT('PRIMARY KEY (', GROUP_CONCAT(COLUMN_NAME ORDER BY ORDINAL_POSITION SEPARATOR ', '), ')') AS pk_def
-                       FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
-                       WHERE CONSTRAINT_NAME = 'PRIMARY'
-                       GROUP BY TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME
-                       ORDER BY TABLE_SCHEMA, TABLE_NAME, MIN(ORDINAL_POSITION)) AS pk
-               WHERE table_schema LIKE IFNULL(NULL, '%')
-               AND table_schema = DATABASE()
-               AND (0x00) IN (@pk_info:=CONCAT_WS(',', @pk_info, CONCAT('{"schema":"', table_schema,
-                                                                        '","table":"', pk_table,
-                                                                        '","column":"', pk_column,
-                                                                        '","pk_def":"', IFNULL(pk_def, ''),
-                                                                        '"}')))))
-), cols as
-(
-  (SELECT (@cols := NULL),
-        (SELECT (0)
-         FROM information_schema.columns cols
-         WHERE cols.table_schema LIKE IFNULL(NULL, '%')
-           AND cols.table_schema = DATABASE()
-           AND (0x00) IN (@cols := CONCAT_WS(',', @cols, CONCAT(
-                '{"schema":"', cols.table_schema,
-                '","table":"', cols.table_name,
-                '","name":"', REPLACE(cols.column_name, '"', '\"'),
-                '","type":"', LOWER(cols.data_type),
-                '","character_maximum_length":"', IFNULL(cols.character_maximum_length, 'null'),
-                '","precision":',
-                    CASE
-                        WHEN cols.data_type IN ('decimal', 'numeric')
-                        THEN CONCAT('{"precision":', IFNULL(cols.numeric_precision, 'null'),
-                                    ',"scale":', IFNULL(cols.numeric_scale, 'null'), '}')
-                        ELSE 'null'
-                    END,
-                ',"ordinal_position":"', cols.ordinal_position,
-                '","nullable":', IF(cols.is_nullable = 'YES', 'true', 'false'),
-                ',"default":"', IFNULL(REPLACE(cols.column_default, '"', '\"'), ''),
-                '","collation":"', IFNULL(cols.collation_name, ''), '"}'
-            )))))
-), indexes as (
-   (SELECT (@indexes := NULL),
-            (SELECT (0)
-             FROM information_schema.statistics indexes
-             WHERE table_schema LIKE IFNULL(NULL, '%')
-                 AND table_schema = DATABASE()
-                 AND (0x00) IN  (@indexes:=CONCAT_WS(',', @indexes, CONCAT('{"schema":"', indexes.table_schema,
-                                     '","table":"', indexes.table_name,
-                                     '","name":"', indexes.index_name,
-                                     '","column":"', indexes.column_name,
-                                     '","index_type":"', LOWER(indexes.index_type),
-                                     '","cardinality":', indexes.cardinality,
-                                     ',"direction":"', (CASE WHEN indexes.collation = 'D' THEN 'desc' ELSE 'asc' END),
-                                     '","unique":', IF(indexes.non_unique = 1, 'false', 'true'), '}')))))
-),  tbls as
-(
-  (SELECT (@tbls:=NULL),
-              (SELECT (0)
-               FROM information_schema.tables tbls
-               WHERE table_schema LIKE IFNULL(NULL, '%')
-                   AND table_schema = DATABASE()
-                   AND (0x00) IN (@tbls:=CONCAT_WS(',', @tbls, CONCAT('{', '"schema":"', `TABLE_SCHEMA`, '",',
-                                               '"table":"', `TABLE_NAME`, '",',
-                                             '"rows":', IFNULL(`TABLE_ROWS`, 0),
-                                             ', "type":"', IFNULL(`TABLE_TYPE`, ''), '",',
-                                             '"engine":"', IFNULL(`ENGINE`, ''), '",',
-                                             '"collation":"', IFNULL(`TABLE_COLLATION`, ''), '"}')))))
-), views as (
-(SELECT (@views:=NULL),
-              (SELECT (0)
-               FROM information_schema.views views
-               WHERE table_schema LIKE IFNULL(NULL, '%')
-                   AND table_schema = DATABASE()
-                   AND (0x00) IN (@views:=CONCAT_WS(',', @views, CONCAT('{', '"schema":"', `TABLE_SCHEMA`, '",',
-                                                   '"view_name":"', `TABLE_NAME`, '",',
-                                                   '"definition":"', REPLACE(REPLACE(TO_BASE64(VIEW_DEFINITION), ' ', ''), '
-', ''), '"}'))) ) )
-)
-SELECT CAST(CONCAT('{"fk_info": [', IFNULL(@fk_info, ''),
-                  '], "pk_info": [', IFNULL(@pk_info, ''),
-                  '], "columns": [', IFNULL(@cols, ''),
-                  '], "indexes": [', IFNULL(@indexes, ''),
-                  '], "tables":[', IFNULL(@tbls, ''),
-                  '], "views":[', IFNULL(@views, ''),
-                  '], "database_name": "', DATABASE(),
-                  '", "version": "', VERSION(), '"}') AS CHAR) AS ''
-FROM fk_info, pk_info, cols, indexes, tbls, views;
 
 
 

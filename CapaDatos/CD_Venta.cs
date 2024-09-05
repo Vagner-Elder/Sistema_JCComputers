@@ -117,10 +117,11 @@ namespace CapaDatos
 
                     // Agregar parámetros de la venta
                     cmd.Parameters.AddWithValue("p_IdUsuario", obj.oUsuario.IdUsuario);
+                    cmd.Parameters.AddWithValue("p_IdSucursal", obj.oSucursal.IdSucursal); // Añadir IdSucursal
                     cmd.Parameters.AddWithValue("p_TipoDocumento", obj.TipoDocumento);
                     cmd.Parameters.AddWithValue("p_NumeroDocumento", obj.NumeroDocumento);
                     cmd.Parameters.AddWithValue("p_DocumentoCliente", obj.DocumentoCliente);
-                    cmd.Parameters.AddWithValue("p_NombreCliente", obj.NombreCliente);
+                    cmd.Parameters.AddWithValue("p_IdCliente", obj.oCliente.IdCliente); // Añadir IdCliente
                     cmd.Parameters.AddWithValue("p_MontoPago", obj.MontoPago);
                     cmd.Parameters.AddWithValue("p_MontoCambio", obj.MontoCambio);
                     cmd.Parameters.AddWithValue("p_MontoTotal", obj.MontoTotal);
@@ -152,38 +153,56 @@ namespace CapaDatos
         }
 
 
-        public Venta ObtenerVenta(string numero) {
-
+        public Venta ObtenerVenta(string numero) 
+        {
             Venta obj = new Venta();
 
-            using (MySqlConnection conexion = new MySqlConnection(Conexion.cadena)) {
+            using (MySqlConnection conexion = new MySqlConnection(Conexion.cadena)) 
+            {
                 try
                 {
                     conexion.Open();
                     StringBuilder query = new StringBuilder();
 
-                    query.AppendLine("SELECT v.IdVenta,u.Nombres,");
-                    query.AppendLine("v.DocumentoCliente,v.NombreCliente,");
-                    query.AppendLine("v.TipoDocumento,v.NumeroDocumento,");
-                    query.AppendLine("v.MontoPago,v.MontoCambio,v.MontoTotal,");
+                    query.AppendLine("SELECT v.IdVenta, u.Nombres AS NombreUsuario, u.Apellidos AS ApellidoUsuario,");
+                    query.AppendLine("v.DocumentoCliente, c.Nombres AS NombreCliente, c.Apellidos AS ApellidoCliente,");
+                    query.AppendLine("s.Nombre AS NombreSucursal,");
+                    query.AppendLine("v.TipoDocumento, v.NumeroDocumento,");
+                    query.AppendLine("v.MontoPago, v.MontoCambio, v.MontoTotal,");
                     query.AppendLine("DATE_FORMAT(v.FechaRegistro, '%d/%m/%Y') AS FechaRegistro");
                     query.AppendLine("FROM VENTA v");
-                    query.AppendLine("INNER JOIN USUARIO u on u.IdUsuario = v.IdUsuario");
+                    query.AppendLine("INNER JOIN USUARIO u ON u.IdUsuario = v.IdUsuario");
+                    query.AppendLine("INNER JOIN CLIENTE c ON c.IdCliente = v.IdCliente");
+                    query.AppendLine("INNER JOIN SUCURSAL s ON s.IdSucursal = v.IdSucursal");  // Unión con la tabla SUCURSAL
                     query.AppendLine("WHERE v.NumeroDocumento = @numero");
 
                     MySqlCommand cmd = new MySqlCommand(query.ToString(), conexion);
                     cmd.Parameters.AddWithValue("@numero", numero);
                     cmd.CommandType = System.Data.CommandType.Text;
 
-                    using (MySqlDataReader dr = cmd.ExecuteReader()) {
-
-                        while (dr.Read()) {
+                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
                             obj = new Venta()
                             {
                                 IdVenta = int.Parse(dr["IdVenta"].ToString()),
-                                oUsuario = new Usuario() { Nombres = dr["Nombres"].ToString() },
+                                oUsuario = new Usuario()
+                                {
+                                    Nombres = dr["NombreUsuario"].ToString(),
+                                    Apellidos = dr["ApellidoUsuario"].ToString()
+                                },
+
                                 DocumentoCliente = dr["DocumentoCliente"].ToString(),
-                                NombreCliente = dr["NombreCliente"].ToString(),
+                                oCliente = new Cliente()
+                                {
+                                    Nombres = dr["NombreCliente"].ToString(),
+                                    Apellidos = dr["ApellidoCliente"].ToString()
+                                },
+                                oSucursal = new Sucursal()
+                                {
+                                    Nombre = dr["NombreSucursal"].ToString()
+                                },
                                 TipoDocumento = dr["TipoDocumento"].ToString(),
                                 NumeroDocumento = dr["NumeroDocumento"].ToString(),
                                 MontoPago = Convert.ToDecimal(dr["MontoPago"].ToString()),
@@ -193,9 +212,9 @@ namespace CapaDatos
                             };
                         }
                     }
-
                 }
-                catch {
+                catch
+                {
                     obj = new Venta();
                 }
 
